@@ -1,0 +1,286 @@
+body{
+    color:#323232;
+    background:#fff;
+    text-align:left;
+}
+article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.header {
+   position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 60px;
+    background: #222;
+}
+.header .header-inner {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+.header .logo {
+    float: left;
+    display: inline;
+    margin-top: 14px;
+    margin-left: 30px;
+    width: 76px;
+    height: 36px;
+}
+.header .nav {
+    float: left !important;
+    _display: inline;
+}
+ul.nav-ul {
+    *zoom: 1;
+    margin-left: 13px;
+}
+.header .nav ul.nav-ul li.nav-list {
+    position: relative;
+    float: left !important;
+    display: inline;
+}
+.header .nav ul.nav-ul li.nav-list .nav-span {
+    display: block;
+    padding: 0 16px;
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Hiragino Sans GB,Microsoft YaHei,SimHei,SimSun,sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+.header .nav ul.nav-ul li.nav-list .nav-span:hover{
+    display: block;
+    padding: 0 16px;
+    line-height: 55px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Hiragino Sans GB,Microsoft YaHei,SimHei,SimSun,sans-serif;
+    color: #fff;
+    text-decoration: none;
+    border-top:2px #fff solid;
+}
+/*导航栏右侧*/
+.header .fun {
+    float: right;
+    display: inline;
+    width:420px;
+    margin-right:1.5%;
+}
+/*搜索框*/
+.nav_search{
+    margin-top: 12px;
+    float: left;
+    position:relative;
+}
+.isearchbar{
+    height: 90px;
+    line-height: 90px;
+}
+.searchMeme-container{
+    width: 200px;
+}
+.searchMeme-container div{
+    margin: 0;
+    padding: 0;
+}
+.searchMeme-button-icon{
+    background-image: url(../icons/search.png);
+    top: 10%;
+    left: 10%;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+}
+.searchMeme-input-right input{
+    opacity: 0.98;
+    width: 232px;
+    height:30px;
+    background-color: #fff;
+    border: none;
+    color: #111;
+    font-size: 16px;
+    border-radius: 6px 0px 0px 6px;
+    margin-top:3px;
+}
+.searchMeme-input-right{
+    float: right;
+    width: 200px;
+    overflow:hidden;
+    height: 35px;
+}
+.searchMeme-button-right{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    float: right;
+    z-index: 100;
+}
+.searchMeme-round-right{
+    border-radius: 0px 4px 4px 0px;
+}
+
+/*用户信息*/
+.header .fun .status {
+    float: right; !important;
+    display: inline;
+    height: 60px;
+    font-size: 14px;
+}
+.header .fun .status .user-info {
+    height: 60px;
+    color: #fff;
+    padding-left: 15px;
+}
+.header .fun .status .user-info .userstatus {
+    position: relative;
+    float: left !important;
+    _display: inline;
+    padding-top: 14px;
+    padding-right: 10px;
+    height: 60px;
+    list-style:none;
+}
+.header .fun .status .user-info .avatar {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+.header .fun .status .user-info .avatar img {
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.header .fun .status .user-info .username {
+    display: inline-block;
+    width: 65px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top:2px;
+    text-overflow: ellipsis;
+}
+.header .fun .status .user-info .username a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.q-layer-userstatus {
+    right: 0;
+    top: 60px;
+    width: 90px;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 200;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    display:none;
+    list-style:none;
+}
+.q-layer-userstatus li {
+    margin: 2px 0;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #fff;
+}
+.q-layer-userstatus li a {
+    display: block;
+    text-decoration:none;
+    color: #aaa;
+}
+.q-layer-userstatus li a:hover {
+    display: block;
+    text-decoration:none;
+    color: #d20000;
+}
+.q-layer-userstatus li.setting {
+    padding: 5px 5px 0;
+    margin: 5px 10px 0;
+    border-top: 1px solid #ececec;
+}
+.q-layer-userstatus li .fr .link {
+    color: #aaa !important;
+    cursor: pointer;
+}
+.q-layer-userstatus li .fr .link:hover {
+    color: #d20000 !important;
+    cursor: pointer;
+}
+
+.header .fun .status .user-info .usermsg {
+    position: relative;
+    float: left !important;
+    display: inline;
+    margin-left: 5px;
+    margin-top: 20px;
+    height: 60px;
+    line-height: 60px;
+    list-style:none;
+}
+.usermsg .q-layer-userstatus{
+    top: 42px;
+    right: -20px;
+    width: 90px;
+    position: absolute;
+}
+
+/*footer*/
+.global_footer {
+    width: 100%;
+    height: 240px;
+    background: #000;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+.global_footer .footer_inner {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.global_footer .footer_inner .inner_link {
+    width: 1120px;
+    height: 239px;
+    margin: 0 auto;
+    border-bottom: 1px solid #333;
+}
+.global_footer .footer_inner .inner_link dl {
+    width: 111px;
+    margin-left: 4%;
+    text-align: left;
+    margin-top: 54px;
+    float: left;
+}
+.global_footer .footer_inner .inner_link dl .logo_footer {
+    width: 101px;
+    height: 36px;
+    background-position: -1px -617px;
+}
+.global_footer .footer_inner .inner_link dl dt {
+    font-size: 16px;
+    color: #fff;
+}
+.global_footer .footer_inner .inner_link dl dd {
+    margin-top: 7px;
+    position: relative;
+    margin-left: 0px;
+}
+.global_footer .footer_inner .inner_link dl dd a {
+    display: block;
+    height: 30px;
+    font-size: 14px;
+    line-height: 43px;
+    color: #999;
+}
+.global_footer .footer_inner .inner_link .wechat_img {
+    height: 123px;
+    background: url(/page/img/img_e90c7500_wechatQR.png) no-repeat 0 10px;
+}
+.global_footer .footer_inner .inner_link .app_img {
+    height: 123px;
+    background: url(/page/img/img_e90c7711_appQR.png) no-repeat 0 10px;
+}

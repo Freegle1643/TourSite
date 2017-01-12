@@ -1,0 +1,329 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>途尔旅行 一路有你</title>
+    <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/main-not.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/main-yet.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/destination.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/jquery.page.css" %}">
+    <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script src="{% static "res/js/jquery.page.js" %}"></script>
+    <script src="{% static "res/js/jquery.searchMeme.js" %}"></script>
+    <!--创建搜索框-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var searchbar = $('#search').searchMeme({
+                onSearch: function (searchText) {
+                    setTimeout(function () {
+                        searchbar.searchMeme({searchComplete: true});
+                        $('.panel').addClass('go-green').animate({'height': 200}, 500);
+                    }, 3000);
+                }
+                , buttonPlacement: 'right', button: 'green'
+            });
+        });
+    </script>
+</head>
+
+<body class="home-body">
+<!--导航栏-->
+<div class="header">
+    <div class="header-inner">
+      <a data-bn-ipg="head-logo" href="../home"><img class="logo" src="{% static "res/images/logo.png" %}" width="60" height="18" /></a>
+                <div class="nav">
+                    <ul class="nav-ul">
+                        <li class="nav-list "><a class="nav-span" href="../triplist" data-bn-ipg="head-nav-place" title="途尔行程">行程</a></li>
+                        <li class="nav-list "><a class="nav-span" href="../forum" data-bn-ipg="head-nav-guide" title="途尔社区">社区</a></li>
+                    </ul>
+                </div>
+    <!--注册登录-->
+    <div class="fun">
+        <!--搜索框-->
+        <div class="nav_search">
+            <div class="isearch">
+                <input type="text" id="search"/>
+
+            <div id="id-submenu-search" class="submenu-search" style="display: none">
+
+                 <div class="submenu-search-title">
+                     <a href="../triplist"><p class="search-subTitle">地点</p></a>
+                      <div id="id-submenu-search-user-1" class="submenuList">
+                      <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
+                 </div>
+                 </div>
+
+                  <div class="submenu-search-title">
+                     <a href="../triplist"><p class="search-subTitle">行程</p></a>
+                     <div id="id-submenu-search-user-2" class="submenuList">
+                      <a href="../trip2"><span class="submenu-search-h" >金陵自古帝王州</span></a>
+                 </div>
+
+                 <div id="id-submenu-search-user-4" class="submenuList">
+                      <a href=""><span class="submenu-search-h" >金陵城与花海</span></a>
+                 </div>
+                 </div>
+
+                <div class="submenu-search-title">
+                     <a href="../forum"><p class="search-subTitle">游记</p></a>
+                     <div id="id-submenu-search-user-5" class="submenuList">
+                      <a href="../journal3"><span class="submenu-search-h" >能不忆金陵</span></a>
+                 </div>
+                 <div id="id-submenu-search-user-6" class="submenuList">
+                      <a href=""><span class="submenu-search-h" >远辰</span></a>
+                 </div>
+                 <div id="id-submenu-search-user-7" class="submenuList" >
+                      <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
+                 </div>
+                 </div>
+
+            </div>
+
+        </div>
+        </div>
+
+        <!-- 已登录 -->
+        {% if user.is_authenticated %}
+        <div id="userStatus" class="status">
+<ul class="user-info show">
+   <!--加了鼠标事件及div改成ul-->
+
+  <p class="userstatus" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+    {% for item in currentuser %}
+       <span class="avatar"><a href="../personal"><img src="{{item.uico}}" width="32" height="32"></a></span>
+       <span class="username"><a href="../personal">{{item.user.username}}</a></span>
+       {% endfor %}
+       <a class="link" href="../logout">退出</a>
+         </p>
+
+      </ul>
+     </div>
+     </div>
+
+        {% else %}
+        <!-- 未登录 -->
+        <div id="js_qyer_header_userStatus" class="status">
+          <div class="login show">
+                <!-- <a class="otherlogin-link" href="javascript:;" url="#qq"><img src="{% static "res/icons/qq.png" %}"></a>
+                <a class="otherlogin-link" href="javascript:;" url="#weibo"><img src="{% static "res/icons/weibo.png" %}"></a> -->
+                <a class="otherlogin-link" href="../linkWechat" url="#wechat"><img src="{% static "res/icons/wechat.png" %}"></a>
+
+                <a href="../register" data-bn-ipg="index-head-un-register">注册</a>
+                <a href="../login" data-bn-ipg="index-head-un-login">登录</a>
+          </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+<!--地点-->
+<div class="contentwrapper">
+    <div class="cfb-crumbs main">
+        <a href="../home" title="首页" target="_blank">首页</a>
+        &nbsp;>
+        <h1>地点</h1>
+    </div>
+
+    <div class="page-title main">
+        <h2 class="title">地点</h2>
+    </div>
+
+
+    <!--左侧地点-->
+    <div class="cfb-journals journal-entry  main">
+        <div class="journal-main">
+            <div id="JS-journal-select" class="journal-select">
+              {% for item in destresult %}
+                <div class="des-name">
+                    <div class="l-title">
+                        <!--dname-->
+                        <div class="main-title" id="d-name">{{ item.dname }}</div>
+                    </div>
+                </div>
+                <div class="introduction">
+                    <div class="RBg">
+                        <div class="mod" style="clear:none">
+                            <!--dinfo-->
+                            <div class="kno-rdesc"><span>{{ item.dinfo }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mod" style="clear:none">
+                        <div class="eFb">
+                            <!--drealweather-->
+                            <div class="mr"><span class="xdb"><a class="fl">天气</a>： </span><span
+                                    class="cont">{{ item.drealweather }}</span></div>
+
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+                <div class="main-scene">
+                    <div class="scene">景点</div>
+                    <div class="scene-list" style="position:relative">
+                        {% for item in spotresult %}
+                        <div class="sub-scene" style="width:72px">
+                            <!--这里放一个百度百科的链接-->
+                            <a href={{ item.sinfo }}>
+                                <div class="eg" style="width:72px"><img id="sid-1" class="s-img" src={{ item.scover|safe|escape  }}  style="width:72px; height:60px; float:left">
+                                </div>
+                                <div class="s-name">{{ item.sname }}</div>
+                            </a>
+                        </div>
+                         {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="journal-list">
+                <div id="JS-city-list"></div>
+                <div id="JS-journals" class="city-journals">
+                    <div class="items" data-more-url="/journals/domestic">
+                        {% for item in tripresult %}
+                        <!--did.tid 动态加载 tid -->
+                        <a href="../trip{{ item.tid }}" class="item journal">
+                            <img class="journal-img" src={{ item.tcover|safe|escape }}  width="600">
+                        {% endfor %}
+                            <div class="journal-wrap">
+                                <div class="txt-area">
+                                    {% for item in destresult %}
+                                    <!--dname-->
+                                    <h2 class="title">{{ item.dname }}</h2>
+                                    {% endfor %}
+                                    <!--did.tname-->
+                                    {% for item in tripresult %}
+                                    <h3 class="sub-title">{{ item.tname }}</h3>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="page"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--底部链接栏-->
+        <div class="global_footer">
+            <div class="footer_inner">
+                <div class="inner_link clear">
+                <dl>
+                <p class="logo_footer index_icons"></p>
+                </dl>
+                <!-- <dl>
+                <dt>联系我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#a" rel="nofollow">意见反馈</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#b" rel="nofollow">广告代理</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#c" rel="nofollow">社区</a>
+                </dd>
+                </dl> -->
+                <dl>
+                <dt>关于我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../member" rel="nofollow">会员条款</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../about" rel="nofollow">候鸟团队</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../aboutTour" rel="nofollow">关于途尔</a>
+                </dd>
+                </dl>
+                <dl class="footer_follow">
+                <dt>关注我们</dt>
+                <dd>
+                <!-- <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#weibo" target="_blank" rel="nofollow">新浪微博</a> -->
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../contact" rel="nofollow">联系我们</a>
+                </dd>
+                </dl>
+                <dl class="footer_wechat">
+                <dt>官方微信</dt>
+                <dd class="wechat_img">
+                  <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#cc" rel="nofollow">
+                  <img src="{% static "res/images/wechat.jpg" %}" width="100px"/>
+                  </a></dd>
+                </dl>
+                <!-- <dl class="footer_appDownload">
+                <dt>APP 下载</dt>
+                <dd class="app_img"></dd>
+                </dl> -->
+                </div>
+
+            </div>
+        </div>
+<script>
+    $(function () {
+        $("#page").Page({
+            totalPages: 16,//分页总数
+            liNums: 7,//分页的数字按钮数
+            activeClass: 'activP',
+            callBack: function (page) {
+                //console.log(page)
+            }
+        });
+    })
+</script>
+<script>
+    var tabs = function () {
+        function tag(name, elem) {
+            return (elem || document).getElementsByTagName(name);
+        }
+
+        //获得相应ID的元素
+        function id(name) {
+            return document.getElementById(name);
+        }
+
+        function first(elem) {
+            elem = elem.firstChild;
+            return elem && elem.nodeType == 1 ? elem : next(elem);
+        }
+
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (
+            elem && elem.nodeType != 1
+                )
+            return elem;
+        }
+
+        return {
+            set: function (elemId, tabId) {
+                var elem = tag("li", id(elemId));
+                var tabs = tag("div", id(tabId));
+                var listNum = elem.length;
+                var tabNum = tabs.length;
+                for (var i = 0; i < listNum; i++) {
+                    elem[i].onclick = (function (i) {
+                        return function () {
+                            for (var j = 0; j < tabNum; j++) {
+                                if (i == j) {
+                                    tabs[j].style.display = "block";
+                                    //alert(elem[j].firstChild);
+                                    elem[j].firstChild.className = "selected";
+                                }
+                                else {
+                                    tabs[j].style.display = "none";
+                                    elem[j].firstChild.className = "";
+                                }
+                            }
+                        }
+                    })(i)
+                }
+            }
+        }
+    }();
+    tabs.set("nav", "JS-cont");//执行
+</script>
+
+</body>
+</html>

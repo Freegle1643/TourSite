@@ -1,0 +1,144 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TOUR</title> 
+        <LINK rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.min.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/main-yet.css" %}">
+
+        <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "res/js/home.js" %}"> </script>
+        <script src="{% static "res/js/jquery.searchMeme.js" %}"></script>
+        <!--创建搜索框-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+            var searchbar = $('#search').searchMeme({ onSearch: function (searchText) {
+                    setTimeout(function () {
+                        searchbar.searchMeme({ searchComplete: true });
+                        $('.panel').addClass('go-green').animate({ 'height': 200 }, 500);
+                    }, 3000);
+                }
+                , buttonPlacement: 'right', button: 'green'
+                });
+            });
+        </script>
+    </head>
+   
+    <body class="home-body">
+     <!--导航栏-->
+    <div class="header">
+        <div class="header-inner">
+                    <a data-bn-ipg="head-logo" href="home.html"><img class="logo" src="logo.png" width="60" height="18" /></a>
+                    <div class="nav">
+                        <ul class="nav-ul">
+                            <li class="nav-list "><a class="nav-span" href="../triplist" data-bn-ipg="head-nav-place" title="途尔行程">行程</a></li>
+                            <li class="nav-list "><a class="nav-span" href="../forum" data-bn-ipg="head-nav-guide" title="途尔社区">社区</a></li>
+                        </ul>
+                    </div>
+        <!--用户信息-->
+        <div class="fun">
+            <!--搜索框-->
+            <div class="nav_search">
+                <div class="isearch">       
+                    <input type="text" id="search" />
+                </div>
+            </div>
+            <!--个人信息-->
+            <div id="userStatus" class="status">
+                <div class="user-info show">
+                    <div class="userstatus">
+                        <span class="avatar"><a href=""><img src="{% static "res/images/user-head.jpg" width="32" height="32" %}"></a></span>
+                        <span class="username"><a href="">Hypnos_zx</a></span> 
+                        <span style="vertical-align: -2px;"><img src="{% static "res/icons/down.png" %}"></span>
+                        <div class="q-layer-userstatus">
+                            <ul>
+                                <li>
+                                    <a href="#user.html">我的首页</a>
+                                </li>
+                                <li>
+                                    <span class="fr"><a class="link" href="#blogedit.html">写游记</a></span>
+                                    <a href="#user.html">我的足迹</a>
+                                </li>
+                                <li>
+                                    <a data-bn-ipg="index-head-userdrop-plan" href="#">我的行程</a>
+                                </li>
+                                <li class="setting">
+                                    <span class="fr"><a class="link" data-bn-ipg="index-head-userdrop-logout" href="#userlogout">退出</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="usermsg">
+                        <a class="message" href="javascript:;"><img src="{% static "res/icons/message.png" %}"></a>
+                        <div class="q-layer-userstatus">
+                            <ul>
+                                <li>
+                                    <a href="#user.html">站内通知</a>
+                                </li>
+                                <li>
+                                    <span class="fr"><a class="link" href="#blogedit.html">我的游记</a></span>
+                                </li>    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容-->
+<div class="content" style="width:600px;text-align:center;height:600px;">
+    
+</div>
+
+<!--底部链接栏-->
+        <div class="global_footer">
+            <div class="footer_inner">
+                <div class="inner_link clear">
+                <dl>
+                <p class="logo_footer index_icons"></p>
+                </dl>
+                <!-- <dl>
+                <dt>联系我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#a" rel="nofollow">意见反馈</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#b" rel="nofollow">广告代理</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#c" rel="nofollow">社区</a>
+                </dd>
+                </dl> -->
+                <dl>
+                <dt>关于我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../member" rel="nofollow">会员条款</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../about" rel="nofollow">候鸟团队</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../aboutTour" rel="nofollow">关于途尔</a>
+                </dd>
+                </dl>
+                <dl class="footer_follow">
+                <dt>关注我们</dt>
+                <dd>
+                <!-- <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#weibo" target="_blank" rel="nofollow">新浪微博</a> -->
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../contact" rel="nofollow">联系我们</a>
+                </dd>
+                </dl>
+                <dl class="footer_wechat">
+                <dt>官方微信</dt>
+                <dd class="wechat_img">
+                  <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#cc" rel="nofollow">
+                  <img src="{% static "res/images/wechat.jpg" %}" width="100px"/>
+                  </a></dd>
+                </dl>
+                <!-- <dl class="footer_appDownload">
+                <dt>APP 下载</dt>
+                <dd class="app_img"></dd>
+                </dl> -->
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

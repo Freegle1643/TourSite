@@ -1,0 +1,443 @@
+.contentwrapper {
+    padding-top: 80px;
+	margin:0 auto;
+    font-size: 14px;
+    background-color: #f5f5f5 !important;
+    font-family: "Microsoft Yahei";
+}
+.contentwrapper .main {
+    width: 960px;
+    margin: 0 auto;
+    color: #999;
+    padding-bottom: 5px;
+}
+.cfb-crumbs a {
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+    font-family: "Microsoft Yahei Light";
+}
+.cfb-crumbs a:hover{
+    text-decoration: none;
+    color: #21669d;
+    font-size: 12px;
+    font-family: "Microsoft Yahei Light";
+}
+.cfb-crumbs h1 {
+    display: inline;
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+    font-family: "Microsoft Yahei Light";
+}
+.journal-hd {
+    position: relative;
+    z-index: 4;
+    width: 960px;
+    height: 400px;
+    overflow: hidden;
+    background-color: white;
+}
+.journal-hd .journal-hd-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.journal-hd .journal-hd-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding: 40px 60px;
+    display: table;
+    overflow: hidden;
+    background: -moz-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+
+.journal-hd .txt-area {
+    line-height: 1;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 2px #000;
+}
+.journal-hd .txt-area .title {
+    margin-bottom: 5px;
+    overflow: hidden;
+    font-size: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.journal-hd .txt-area .day-location {
+    overflow: hidden;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.img_top {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 101;
+}
+.img_top a {
+    color: #21669d;
+    text-decoration: none;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+.img_top i {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 5px auto 5px;
+    text-align: center;
+    background: url("../icons/it-like.png");
+}
+.journal-extra {
+    padding-top: 20px;
+    padding-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    border-bottom: 1px solid #e6e6e6;
+}
+.journal-extra p {
+    margin-bottom: 13px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+.journal-extra :last-child {
+    margin-bottom: 0;
+}
+
+
+.journal-bd {
+    position: relative;
+    z-index: 3;
+    border-bottom: 1px solid #e6e6e6;
+}
+.journal-bd .journal-day-list {
+    position: absolute;
+    z-index: 3;
+    border-bottom: 1px solid #e6e6e6;
+    left: 0;
+}
+.journal-bd .journal-day-list .day-list-wrap {
+    position: absolute;
+    top: 20px;
+    z-index: 99;
+    width: 40px;
+    padding: 90px 0;
+    text-align: center;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #e6e6e6;
+}
+.journal-day-list .date {
+    display: inline-block;
+    width: 100%;
+    height: 21px;
+    padding: 15px 0;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+.journal-day-list .date:hover {
+    display: inline-block;
+    width: 100%;
+    height: 21px;
+    padding: 15px 0;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    text-align: center;
+    text-decoration: none;
+    color: #d20000;
+}
+.journal-day-list .date.current {
+    cursor: pointer;
+    text-decoration: none;
+    color: #21669d;
+}
+
+.journal-bd .journal-location-list {
+    position: relative;
+    float: left;
+    width: 600px;
+    margin-right: 40px;
+    margin-left: 60px;
+}
+.journal-when {
+    position: relative;
+    z-index: 2;
+    display: table;
+    margin-top: -1px;
+    color: #21669d;
+    border-top: 1px solid #e6e6e6;
+}
+.journal-when .ico-dot {
+    position: absolute;
+    left: 38px;
+    z-index: 2;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-top: 18px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+}
+.journal-when .day-wrap {
+    margin-left: 70px;
+}
+
+.journal-when .day-wrap .day-location {
+    fwidth: 530px;
+    height: 48px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 49px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #21669d;
+}
+.journal-when .day-wrap .day-intro {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #e6e6e6;
+}
+.journal-where {
+    position: relative;
+    z-index: 2;
+    height: 54px;
+    padding: 13px 0 13px 70px;
+    margin-top: -1px;
+    border-top: 1px solid #e6e6e6;
+}
+.journal-where .ico-spots {
+    background-position: 0 0;
+}
+.journal-where .spot {
+    width: 530px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 54px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+}
+.journal-what {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 20px;
+    margin-top: -1px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.journal-what-wrap {
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: white;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.journal-what .img-cnt {
+    position: relative;
+    z-index: 3;
+    width: 600px;
+    height: 480px;
+    overflow: hidden;
+    background-color: white;
+}
+.journal-what .img-cnt ul {
+    position: relative;
+    width: 100%;
+}
+.journal-what .img-cnt li {
+    float: left;
+    width: 600px;
+    height: 480px;
+    overflow: hidden;
+}
+.journal-what .img-cnt img {
+    margin-top:-18px;
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.journal-what .img-cover {
+    position: relative;
+    z-index: 3;
+    width: 600px;
+    height: 480px;
+    margin-top: -480px;
+    background: -moz-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%);
+    background: -webkit-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%);
+    background: -o-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%);
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 20%);
+}
+.journal-what .txt-cnt {
+    display: block;
+    padding: 16px 16px 0 16px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #666;
+}
+.journal-what .txt-cnt p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #222;
+}
+
+.journal-end {
+    position: relative;
+    height: 160px;
+    padding-left: 70px;
+}
+.journal-end .ico-end {
+    position: absolute;
+    top: 50%;
+    left: 38px;
+    z-index: 2;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    background-position: 0 -32px;
+}
+.journal-end .ico-end-line {
+    position: absolute;
+    top: 86px;
+    left: 42px;
+    z-index: 2;
+    width: 4px;
+    height: 120px;
+    background-color:#e6e6e6;
+}
+.journal-end .ico-end-txt {
+    display: inline-block;
+    width: 200px;
+    height: 160px;
+    background: url(http://cfbassets.b0.upaiyun.com/assets/journals/icon_end-6ed45f8c9a2e0ac5e63ffdfc0aba15a9.png) no-repeat left center;
+}
+
+.journal-link {
+    position: relative;
+    height: 60px;
+    padding-left: 70px;
+}
+.journal-link i {
+    color:#21669d;
+    font-size: 14px;
+    margin-right: 10px;
+    font-style: normal;
+    font-weight: bold;
+}
+.journal-link a {
+    font-size: 14px;
+    margin-right: 10px;
+}
+.journal-link a:hover{
+    font-size: 14px;
+    margin-right: 10px;
+    color:#d20000;
+}
+
+.journal-time-line {
+    position: absolute;
+    top: 30px;
+    left: 42px;
+    z-index: 0;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.06);
+}
+
+
+.journal-bd .journal-aside-list {
+    position: absolute;
+    right: 0;
+    width: 260px;
+}
+.journal-bd .journal-aside-list .aside-list-wrap {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+.journal-bd .journal-aside-list .journal-handle {
+    height: 108px;
+}
+.journal-bd .journal-aside-list .journal-handle-wrap {
+    margin-top: 20px;
+    margin-left: -10px;
+}
+.journal-bd .journal-aside-list .journal-handle .handle {
+    float: left;
+    width: 78px;
+    height: 78px;
+    margin-left: 10px;
+    -webkit-transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    text-decoration: none;
+    border: 1px solid #21669d;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.journal-bd .journal-aside-list .journal-handle .handle i {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 12px auto 5px;
+    text-align: center;
+    background: #fff;
+}
+.journal-bd .journal-aside-list .journal-handle .handle .ico-visitor{
+    background: url("../icons/it-visitor.png");
+}
+.journal-bd .journal-aside-list .journal-handle .handle .ico-liked{
+    background: url("../icons/it-liked.png");
+}
+.journal-bd .journal-aside-list .journal-handle .handle .ico-share{
+    background: url("../icons/it-share.png");
+}
+.journal-bd .journal-aside-list .journal-handle .handle .action {
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    color: #21669d;
+}
+
+.journal-bd .journal-aside-list .journal-map {
+    position: relative;
+    display: none;
+    width: 258px;
+    height: 258px;
+    margin-bottom: 20px;
+    border: 1px solid #e6e6e6;
+}
+

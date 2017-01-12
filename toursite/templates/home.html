@@ -1,0 +1,330 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>途尔旅行 一路有你</title>
+        <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+        <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/main-not.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/main-yet.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/home.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "res/css/normalize.css" %}"/>
+        <!-- <link rel="stylesheet" type="text/css" href="{% static "res/css/demo.css" %}"/> -->
+        <link rel="stylesheet" type="text/css" href="{% static "res/css/component.css" %}"/>
+        <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+        <SCRIPT type="text/javascript" src="{% static "res/js/home.js" %}"> </SCRIPT>
+        <script src="{% static "res/js/jquery.searchMeme.js" %}"></script>
+        <!--创建搜索框-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+            var searchbar = $('#search').searchMeme({ onSearch: function (searchText) {
+                    setTimeout(function () {
+                        searchbar.searchMeme({ searchComplete: true });
+                        $('.panel').addClass('go-green').animate({ 'height': 200 }, 500);
+                    }, 3000);
+                }
+                , buttonPlacement: 'right', button: 'green'
+                });
+            });
+        </script>
+        <!--导航栏下拉条-->
+<!-- </style>
+<script type="text/javascript">
+function displaySubMenu(li) {
+var subMenu = li.getElementsByTagName("ul")[0];
+subMenu.style.display = "block";
+}
+function hideSubMenu(li) {
+var subMenu = li.getElementsByTagName("ul")[0];
+subMenu.style.display = "none";
+}
+</script> -->
+    </head>
+    <body class="home-body">
+     <!--导航栏-->
+    <div class="header">
+        <div class="header-inner">
+          <a data-bn-ipg="head-logo" href="../home"><img class="logo" src="{% static "res/images/logo.png" %}" width="60" height="18" /></a>
+                    <div class="nav">
+                        <ul class="nav-ul">
+                            <li class="nav-list "><a class="nav-span" href="../triplist" data-bn-ipg="head-nav-place" title="途尔行程">行程</a></li>
+                            <li class="nav-list "><a class="nav-span" href="../forum" data-bn-ipg="head-nav-guide" title="途尔社区">社区</a></li>
+                        </ul>
+                    </div>
+        <!--注册登录-->
+        <div class="fun">
+            <!--搜索框-->
+            <div class="nav_search">
+                <div class="isearch">
+                    <input type="text" id="search"/>
+
+                <div id="id-submenu-search" class="submenu-search" style="display: none">
+
+                     <div class="submenu-search-title">
+                         <a href="../triplist"><p class="search-subTitle">地点</p></a>
+                          <div id="id-submenu-search-user-1" class="submenuList">
+                          <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
+                     </div>
+                     </div>
+
+                      <div class="submenu-search-title">
+                         <a href="../triplist"><p class="search-subTitle">行程</p></a>
+                         <div id="id-submenu-search-user-2" class="submenuList">
+                          <a href="../trip2"><span class="submenu-search-h" >金陵自古帝王州</span></a>
+                     </div>
+
+                     <div id="id-submenu-search-user-4" class="submenuList">
+                          <a href=""><span class="submenu-search-h" >金陵城与花海</span></a>
+                     </div>
+                     </div>
+
+                    <div class="submenu-search-title">
+                         <a href="../forum"><p class="search-subTitle">游记</p></a>
+                         <div id="id-submenu-search-user-5" class="submenuList">
+                          <a href="../journal3"><span class="submenu-search-h" >能不忆金陵</span></a>
+                     </div>
+                     <div id="id-submenu-search-user-6" class="submenuList">
+                          <a href=""><span class="submenu-search-h" >远辰</span></a>
+                     </div>
+                     <div id="id-submenu-search-user-7" class="submenuList" >
+                          <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
+                     </div>
+                     </div>
+
+                </div>
+
+            </div>
+            </div>
+
+            <!-- 已登录 -->
+            {% if user.is_authenticated %}
+            <div id="userStatus" class="status">
+   <ul class="user-info show">
+       <!--加了鼠标事件及div改成ul-->
+
+      <p class="userstatus" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+            {% for item in currentuser %}
+           <span class="avatar"><a href="../personal"><img src="{{item.uico}}" width="32" height="32"></a></span>
+           <span class="username"><a href="../personal">{{item.user.username}}</a></span>
+           {% endfor %}
+           <a class="link" href="../logout">退出</a>
+           <!-- <span style="vertical-align: -2px;"><img src="{% static "res/icons/down.png" %}"></i></span>
+               <ul class="q-layer-userstatus">
+                   <li>
+                       <a href="../personal">我的首页</a>
+                   </li>
+                   <li>
+                       <!--删掉一行,相应的路由的改变-->
+                       <!-- <a href="../personal">我的足迹</a>
+                   </li>
+                   <li>
+                       <a href="../personal">我的行程</a>
+                   </li>
+                   <li class="setting">
+                       <span class="fr"><a class="link" href="../logout">退出</a></span>
+                   </li>
+               </ul> -->
+       </p>
+
+
+       <!-- 加了鼠标监听事件及div改成ul,路由的改变 -->
+       <!-- <li class="usermsg" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+           <a class="message" href="javascript:;"><img src="{% static "res/icons/message.png" %}"></i></a>
+           <ul class="q-layer-userstatus">
+                   <li>
+                       <a href="../personal">站内通知</a>
+                   </li>
+                   <li>
+                       <span class="fr"><a class="link" href="../personal">我的游记</a></span>
+                   </li>
+           </ul>
+       </li> -->
+     </ul>
+   </div>
+</div>
+            {% else %}
+            <!-- 未登录 -->
+            <div id="js_qyer_header_userStatus" class="status">
+              <div class="login show">
+                    <!-- <a class="otherlogin-link" href="javascript:;" url="#qq"><img src="{% static "res/icons/QQ.png" %}"></a>
+                    <a class="otherlogin-link" href="javascript:;" url="#weibo"><img src="{% static "res/icons/weibo.png" %}"></a> -->
+                    <a class="otherlogin-link" href="../linkWechat" url="#wechat"><img src="{% static "res/icons/wechat.png" %}"></a>
+
+                    <a href="../register" data-bn-ipg="index-head-un-register">注册</a>
+                    <a href="../login" data-bn-ipg="index-head-un-login">登录</a>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!--精选推荐大图-->
+        <div id="slide-wrapper">
+        <div class="home-recommend-image" id="slide-img-1" style="left:0px" >
+                <div id="slide-txt-1" class="home-recommend-image-content" >
+                <h6>途尔，一路有你</h6>
+                <div id="slide-abstract-1" class="home-recommend-brief">
+                <p>----------------------------------------------------------<br></p>
+                <p>谁画出这天地 又画下我和你 让我们的世界绚丽多彩 你累积了许多飞行 你用心挑选纪念品 你收集了地图上每一次的风和日丽</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="home-recommend-image"  id="slide-img-2" style="left:-100%" >
+                <div id="slide-txt-2" class="home-recommend-image-content">
+                <h6>途尔，一路有你</h6>
+                <div id="slide-abstract-2" class="home-recommend-brief">
+                 <p>----------------------------------------------------------<br></p>
+                <p>你在南方的艳阳里大雪纷飞 我在北方的寒夜里四季如春 如果天黑之前来得及 我要忘了你的眼睛 穷极一生做不完一场梦</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="home-recommend-image" id="slide-img-3" style="left:-100%" >
+                <div id="slide-txt-3" class="home-recommend-image-content">
+                <h6>途尔，一路有你</h6>
+                <div  id="slide-abstract-3" class="home-recommend-brief">
+                 <p>----------------------------------------------------------<br></p>
+                <p>我曾经跨过山和大海 也穿过人山人海 我曾经拥有着的一切 转眼都飘散如烟 我曾经失落失望 失掉所有方向 直到看见平凡才是唯一的答案</p>
+                </div>
+                </div>
+            </div>
+            <input id="btn-prev" type="button">
+            <input id="btn-next" type="button">
+
+           <div id="slide-btn">
+                <ul>
+                    <li class="slide-tbtn"></li>
+                    <li class="slide-tbtn"></li>
+                    <li class="slide-tbtn"> </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--行程 这里有三篇游记需要链接-->
+        <div class="container">
+        <div class="con-note"><h2>专属行程</h2><i class="strp"></i></div>
+        <div class="grid">
+            <figure class="effect-note">
+                <img src="{% static "res/images/wuxi2.jpg" %}"/>
+                <figcaption >
+                    <h2>漫步无锡<span>赠君江南一枝春</span></h2>
+                    <p>水宽山远烟岚迥，柳岸萦回在碧流。清昼不风凫雁少，却疑初梦镜湖秋。</p>
+                    <a  href="../trip1" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+                <img src="{% static "res/images/nanjing2.jpg" %}"/>
+                <figcaption>
+                    <h2>石头城记<span>金陵自古帝王州</span></h2>
+                    <p>把江山好处付公来，金陵帝王州。想今年燕子，依然认得，王谢风流。只用平时尊俎，弹压万貔貅，依旧钓天梦，玉殿东头。</p>
+                    <a href="../trip2" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+                <img src="{% static "res/images/xian2.jpg" %}"/>
+                <figcaption>
+                    <h2>梦回长安<span>春风得意马蹄疾</span></h2>
+                    <p>长安大道连狭斜，青牛白马七香车。玉辇纵横过主第，金鞭络绎向侯家。</p>
+                    <a href="../trip3" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="container">
+         <div class="con-trip"><h2>精彩游记</h2><i class="strp"></i></div>
+         <div class="grid">
+             <figure class="effect-trip">
+                 <img src="{% static "res/images/xihu.jpg" %}"/>
+                 <figcaption>
+                     <h2>人间天堂<span>西湖漫游记</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>度假 慢生活 湖光山色 周边游</p>
+                     <a href="../journal1" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+             <figure class="effect-trip">
+                 <img src="{% static "res/images/lijiang2.jpg" %}"/>
+                 <figcaption>
+                     <h2>丽江<span>不止是风花雪月</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>云南 风景 清新</p>
+                     <a href="../journal2" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+             <figure class="effect-trip">
+                 <img src="{% static "res/images/nanjing3.jpg" %}"/>
+                 <figcaption>
+                     <h2>金陵四人行<span>印象南京</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>节假日、文艺、四人行.</p>
+                     <a href="../journal3" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+         </div>
+     </div>
+
+        <!--广告-->
+
+        <div class="clear-float"></div>
+        <div class="home-advertisement" >
+            <h5><广告></h5>
+            <a href="http://www.avis.cn/" target="_blank">
+            <img src="{% static "res/images/11.png" %}" width="800px"/>
+          </a>
+        </div>
+
+        <!--底部链接栏-->
+        <div class="global_footer">
+            <div class="footer_inner">
+                <div class="inner_link clear">
+                <dl>
+                <p class="logo_footer index_icons"></p>
+                </dl>
+                <!-- <dl>
+                <dt>联系我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#a" rel="nofollow">意见反馈</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#b" rel="nofollow">广告代理</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#c" rel="nofollow">社区</a>
+                </dd>
+                </dl> -->
+                <dl>
+                <dt>关于我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../member" rel="nofollow">会员条款</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../about" rel="nofollow">候鸟团队</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../aboutTour" rel="nofollow">关于途尔</a>
+                </dd>
+                </dl>
+                <dl class="footer_follow">
+                <dt>关注我们</dt>
+                <dd>
+                <!-- <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#weibo" target="_blank" rel="nofollow">新浪微博</a> -->
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../contact" rel="nofollow">联系我们</a>
+                </dd>
+                </dl>
+                <dl class="footer_wechat">
+                <dt>官方微信</dt>
+                <dd class="wechat_img">
+                  <a class="global_gaNode" data-galabel="home_footer_nav_link"  rel="nofollow">
+                  <img src="{% static "res/images/wechat.jpg" %}" width="100px"/>
+                  </a></dd>
+                </dl>
+                <!-- <dl class="footer_appDownload">
+                <dt>APP 下载</dt>
+                <dd class="app_img"></dd>
+                </dl> -->
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

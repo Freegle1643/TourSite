@@ -1,0 +1,193 @@
+
+.contentwrapper {
+    font-size: 14px;
+    background-color: #f9f9f9 !important;
+    padding-bottom: 250px;
+    padding-top: 80px;
+    height: 740px;
+}
+.contentwrapper .main {
+    width: 960px;
+    margin: 0 auto;
+}
+.cfb-crumbs {
+    display: none;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    color: #999;
+    display: block !important;
+}
+.cfb-crumbs a {
+    text-decoration: none;
+    color: #999;
+}
+.cfb-crumbs h1 {
+    display: inline;
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+.journal-entry {
+    margin-bottom: 100px;
+}
+.journal-select {
+    position: relative;
+    top: 0px;
+    z-index: 98;
+    width: 340px;
+    float: left;
+    background: #f9f9f9;
+}
+.des-header{
+    position: relative;
+    overflow: hidden;
+}
+.header-images{
+    width:45%;
+    float: left;
+    margin:5px;
+    display: inline-block;
+}
+.des-img{
+    width: 100%;
+    height: 90px;
+    padding-bottom: 10px;
+}
+.des-img img{
+    display: block;
+    width:100%;
+    height: 90px;
+}
+.des-name{
+    padding: 12px 0 12px 0;
+}
+.l-title{
+    padding-left: 15px;
+}
+.main-title{
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: -3px;
+    overflow: hidden;
+    font-family: arial,sans-serif-light,sans-serif;
+    display: inline;
+    font-size: 30px;
+    font-weight: normal;
+    position: relative;
+    transform-origin: left top;
+    transform-origin: left top;
+    word-wrap: break-word;
+}
+.subtitle{
+    color: #777;
+    font-family: arial,sans-serif;
+    margin: 4px 0;
+    overflow: hidden;
+}
+.introduction{
+    border-top: solid 1px #ebebeb;
+}
+.kp-blk .xpdopen ._xle {
+    border-top: solid 1px #ebebeb;
+    font-size: 13px;
+    line-height: 1.2;
+}
+.mod{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.kno-rdesc{
+    width: 254px;
+    height: 130px;
+    line-height: 1.24;
+}
+.fl{
+    color: #d53211;
+}
+.mr{
+    margin-top: 7px;
+}
+.xdb {
+    font-weight: bolder;
+}
+.main-scene{
+    line-height: 1.24;
+}
+.scene{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.scene-list{
+    overflow: hidden;
+}
+.sub-scene{
+    padding-left: 16px;
+    float: left;
+}
+
+
+
+.journal-list {
+    min-height: 550px;
+    float: right;
+    width: 600px;
+}
+.journal-list .city-journals {
+    width: 600px;
+    overflow: hidden;
+}
+.items {
+    background: #f9f9f9;
+    padding-bottom: 20px;
+}
+.items .journal {
+    position: relative;
+    z-index: 4;
+    display: block;
+    width: 600px;
+    height: 160px;
+    margin-top: 10px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.items .journal .journal-img {
+    position: relative;
+    z-index: 1;
+    height: 160px;
+}
+.items .journal .journal-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    width: 520px;
+    padding: 20px 40px 20px;
+    -webkit-transition: background 0.3s linear;
+    -moz-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+    transition: background 0.3s linear;
+    background: -moz-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+.items .journal .txt-area {
+    float: left;
+    width: 520px;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 2px #000;
+    -webkit-text-shadow: 0 1px 2px #000;
+}
+.items .journal .txt-area .title {
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.items .journal .txt-area .sub-title {
+    overflow: hidden;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

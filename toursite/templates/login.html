@@ -1,0 +1,104 @@
+{% load staticfiles %}
+<HTML>
+
+<HEAD>
+    <META charset="utf-8">
+      <title>欢迎回到途尔</title>
+      <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+    <style type="text/css"></style>
+    <style>
+        INPUT[type="text"],
+        INPUT[type="submit"],
+        INPUT[type="password"],
+        INPUT[type="button"] {
+            height: 40px;
+            width: 100%;
+            font-size: 14px;
+            padding-left: 14px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            border: 1px solid #DFDFDF;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+</HEAD>
+
+<BODY class="Loginbody">
+    <DIV id="Login" text-align: center;>
+        <IMG class="logo" src="{% static "res/images/loginlogo.png" %}">
+        <FORM name="frmLogin" method="post">
+          {% csrf_token %}
+            <TABLE style="margin:auto;">
+                <CAPTION>登陆或注册<span style="font-weight: bold">途尔</span></CAPTION>
+                <TR>
+                    <TD colspan="2"><input name="username"  id= "username" type="text" placeholder="用户名" onblur="check_txtName()" onfocus="focus_txtName()"></TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="accWarning" hidden>用户名不能为空。</p>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD colspan="2">
+                        <INPUT name="password" id="password" type="password" placeholder="密码" onblur="check_txtPwd()" onfocus="focus_txtPwd()">
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="pwdWarning" hidden>密码不能小于6位。</p>
+                    </TD>
+                </TR>
+
+                <!-- <TR>
+                    <TD><input id="iptIdCode" class="iptIdCode" name="idtyCode" type="text" placeholder="验证码" onblur="check_idtyCode()" onfocus="focus_idtyCode()"></TD>
+                    <TD>
+                        <IMG src="res/images/idtyimg.jpg">
+                    </TD>
+                </TR> -->
+                <!-- <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="codeWarning" hidden>请输入验证码。</p>
+                    </TD>
+                </TR> -->
+
+                <TR>
+                    <!-- <TD>
+                        <INPUT class="remPwdcheboxSty" id="remPwdchebox" name="remPwdchebox" type="checkbox" onblur="checked_remPwdchebox()" onfocus="remPwdchebox()">
+                        <LABEL class="remPwdcheboxtextSty" for="remPwdchebox">保持登录状态</LABEL>
+                    </TD> -->
+                    <TD align="right">
+                        <A class="fogPwdlink" href="forget.html">忘记密码？</A>
+                    </TD>
+                </TR>
+
+                <!-- <TR>
+                    <TD colspan="2" align="center">
+                        <P class="Loginpromotion">一旦登录，即表明你同意 <span>途尔</span> 的
+                            <A href="privacy.html">隐私政策</A> 和
+                            <A href="provision.html">使用条款</A>
+                        </P>
+                    </TD>
+                </TR> -->
+
+                <TR>
+                    <TD colspan="2" width = 300px>
+                        <INPUT id="login-input" class="btnSubmit" type="submit" value="登陆" />
+                    </TD>
+                </TR>
+                <TR>
+                    <TD colspan="2">
+                        <INPUT class="btnRegist" type="button" value="创建账户" onclick="location.href='../register/'" />
+                    </TD>
+                </TR>
+            </TABLE>
+        </FORM>
+    </DIV>
+
+    <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+</BODY>
+
+</HTML>

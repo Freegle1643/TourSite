@@ -1,0 +1,20 @@
+# TourSite
+Django based touring site, using some Tencent cloud techs.
+## Basic info
+This is a project mainly used for a competition called [云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index).
+The contest is partly supported by Tencent, so we would like to use many of their cloud service including CVM, Cloud Database, COS and other AI products like 云搜(Cloud Search) to optimize the experience of our site.
+Our ultimate goal is to create a website that people who enjoy traveling themselves can discover spots and routes just to fit their needs.
+## Our group
+All these outcomes are the fabulous results of hardworking of our group 候鸟(Passagird:meaning bird of passage). We are [Freegle](https://github.com/Freegle1643), [Chanki](https://github.com/ChankiWu), [Hypnos](https://github.com/Hypnosx) and [Zhixiang](https://github.com/wuzhixiang).
+### Tech specs
+Django 1.9.6
+Python 2.7.11
+MySQL 5.6/5.7
+
+[Tencent Cloud(腾讯云)](https://www.qcloud.com/) Product:
+CVM
+Cloud Database
+COS
+Cloud Search (云搜)
+#### Contact
+pearl1643@live.com

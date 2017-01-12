@@ -1,0 +1,286 @@
+﻿
+/*body*/
+div.user {
+    width: 70%;
+    background: white;
+    margin: 0px auto 0px auto;
+    padding-top: 70px;
+}
+div.user-map {
+    margin: 0px auto 10px 0px;
+    width: 100%;
+    height: 420px;
+    background: white;
+}
+/*游记*/
+div.user-myblogs {
+    box-sizing: border-box;
+    border: 1px solid #DFDFDF;
+    border-bottom: none;
+    width: 70%;
+    float: left;
+    background: white;
+    margin: 10px auto 10px auto;
+    /*border-bottom: 1px solid #DFDFDF;*/
+}
+div.user-title {
+    border-bottom: 1px solid #DFDFDF;
+    padding: 5px;
+}
+div.user-myblogs-content {
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+    width: 20em;/*不允许出现半汉字截断*/
+    box-sizing: border-box;
+    border-bottom: 1px solid #DFDFDF;
+    width: 100%;
+    height: 80px;
+    background: white;
+}
+div.user-follows-done-l {
+    padding-bottom: 10px;
+    float: left;
+    text-align: center;
+    width: 20%;
+    height: 45px;
+    background: white;
+}
+p.p-user-follows-number-l {
+    font-size: 20px;
+    margin: 6px 0px;
+    color: #262626;
+    font-weight: lighter;
+}
+div.user-myblogs-content-scan {
+    border-left: 1px solid #DFDFDF;
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+    width: 60%;/*不允许出现半汉字截断*/
+    padding: 18px;
+    height: 45px;
+    background: white;
+}
+div.user-myblogs-content-brief {
+    margin-top: 0px;
+    font-size: 12px;
+    padding-left: 10px;
+    color: gray;
+    overflow: hidden;
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    width: 100%;/*不允许出现半汉字截断*/
+}
+/*个人简介*/
+div.user-follows {
+    float: right;
+    width: 100%;
+    height: 350px;
+}
+div.user-information {
+    box-sizing: border-box;
+    width: 30%;
+    margin: 10px 0px 10px 0px;
+    float: right;
+    background: white;
+    border: 1px solid #DFDFDF;
+}
+div.user-head {
+    text-align: center;
+    position: relative;
+    background: white;
+    float: left;
+    height: 60px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+input.cropit-image-input {
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    margin: 10px 0 0 12%;
+}
+a.user-head-click-change {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    line-height: 50px;
+    opacity: 0;
+    font-size: 4px;
+    position: absolute;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 0 0 12%;
+}
+a.user-head-click-change:link {
+    opacity: 0;
+    font-size: 4px;
+    position: absolute;
+}
+a.user-head-click-change:hover {
+    color: white;
+    opacity: 1;
+    font-size: 4px;
+    position: absolute;
+}
+h3.h3-user-namesty {
+    float: left;
+    line-height: 25px;
+    height: 25px;
+    margin-left:5%;
+    margin-top:8%;
+    padding: 10px 0px 0px 0px;
+    font-weight: normal;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+div.user-information-block {
+    box-sizing: border-box;
+    padding:2px 20px 2px 20px;
+    background: white;
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+}
+p.p-user-namesty-briefidtion {
+    height: 8%;
+    margin: 0px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: lighter;
+    color: #262626;
+}
+p.p-user-namesty-briefidtion-s{
+    height: 22px;
+    margin: 0px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: lighter;
+    color: #262626;
+}
+div.user-information-block a.fogPwdlink {
+    padding-right: 10px;
+    font-size: 13px;
+    border-right: 1px solid #DFDFDF;
+}
+div.user-got {
+    border-top:1px solid #DFDFDF; 
+    float: left;
+    background: white;
+    background: darkcya;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+}
+div.user-pefect-information {
+    background: white;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #DFDFDF;
+}
+div.user-follows-done {
+    padding-bottom: 10px;
+    float: left;
+    text-align: center;
+    width: 49%;
+    height: 45px;
+    background: white;
+}
+p.p-user-follows-number {
+    font-size: 16px;
+    margin: 6px 0px;
+    color: #262626;
+    font-weight: lighter;
+}
+
+
+input.change-user-name {
+    font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    height: 25px;
+    line-height: 18px;
+    margin: 0px;
+    padding: 0 5px 0px 0px;
+    font-weight: normal;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+input.change-user-briefidtion {
+    font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    height: 22px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: lighter;
+    color: #262626;
+}
+
+
+
+
+
+/*
+div.image-editor {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}*/
+.cropit-preview {
+        background-color: #f8f8f8;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
+
+      .cropit-preview-image-container {
+        cursor: move;
+      }
+
+      .image-size-label {
+        margin-top: 10px;
+      }
+
+
+
+      .export {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      table.user-data {
+          width: 60%;
+          font-size: 14px;
+          color: #262626;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          border: 1px solid #DFDFDF;
+          border-bottom: none;
+      }
+
+      table.user-data td {
+         padding: 12px;
+         border-bottom: 1px solid #DFDFDF;
+      }

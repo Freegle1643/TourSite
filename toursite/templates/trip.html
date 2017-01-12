@@ -1,0 +1,262 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>甄选行程</title>
+    <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <LINK rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.min.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/main-not.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/main-yet.css" %}">
+    <LINK rel="stylesheet" href="{% static "res/css/itrip.css" %}">
+
+    <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/itrip.js" %}"></script>
+    <script src="{% static "res/js/jquery.searchMeme.js" %}"></script>
+    <!--创建搜索框-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+        var searchbar = $('#search').searchMeme({ onSearch: function (searchText) {
+                setTimeout(function () {
+                    searchbar.searchMeme({ searchComplete: true });
+                    $('.panel').addClass('go-green').animate({ 'height': 200 }, 500);
+                }, 3000);
+            }
+            , buttonPlacement: 'right', button: 'green'
+            });
+        });
+    </script>
+
+</head>
+
+
+<body class="home-body">
+<!--导航栏-->
+<div class="header">
+    <div class="header-inner">
+      <a data-bn-ipg="head-logo" href="../home"><img class="logo" src="{% static "res/images/logo.png" %}" width="60" height="18" /></a>
+                <div class="nav">
+                    <ul class="nav-ul">
+                        <li class="nav-list "><a class="nav-span" href="../triplist" data-bn-ipg="head-nav-place" title="途尔行程">行程</a></li>
+                        <li class="nav-list "><a class="nav-span" href="../forum" data-bn-ipg="head-nav-guide" title="途尔社区">社区</a></li>
+                    </ul>
+                </div>
+    <!--注册登录-->
+    <div class="fun">
+        <!--搜索框-->
+        <div class="nav_search">
+            <div class="isearch">
+                <input type="text" id="search"/>
+
+            <div id="id-submenu-search" class="submenu-search" style="display: none">
+
+                 <div class="submenu-search-title">
+                     <a href="../triplist"><p class="search-subTitle">地点</p></a>
+                      <div id="id-submenu-search-user-1" class="submenuList">
+                      <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
+                 </div>
+                 </div>
+
+                  <div class="submenu-search-title">
+                     <a href="../triplist"><p class="search-subTitle">行程</p></a>
+                     <div id="id-submenu-search-user-2" class="submenuList">
+                      <a href="../trip2"><span class="submenu-search-h" >金陵自古帝王州</span></a>
+                 </div>
+
+                 <div id="id-submenu-search-user-4" class="submenuList">
+                      <a href=""><span class="submenu-search-h" >金陵城与花海</span></a>
+                 </div>
+                 </div>
+
+                <div class="submenu-search-title">
+                     <a href="../forum"><p class="search-subTitle">游记</p></a>
+                     <div id="id-submenu-search-user-5" class="submenuList">
+                      <a href="../journal3"><span class="submenu-search-h" >能不忆金陵</span></a>
+                 </div>
+                 <div id="id-submenu-search-user-6" class="submenuList">
+                      <a href=""><span class="submenu-search-h" >远辰</span></a>
+                 </div>
+                 <div id="id-submenu-search-user-7" class="submenuList" >
+                      <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
+                 </div>
+                 </div>
+
+            </div>
+
+        </div>
+        </div>
+
+
+        <!-- 已登录 -->
+        {% if user.is_authenticated %}
+        <div id="userStatus" class="status">
+<ul class="user-info show">
+   <!--加了鼠标事件及div改成ul-->
+   <p class="userstatus" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+     {% for item in currentuser %}
+        <span class="avatar"><a href="../personal"><img src="{{item.uico}}" width="32" height="32"></a></span>
+        <span class="username"><a href="../personal">{{item.user.username}}</a></span>
+        {% endfor %}
+        <a class="link" href="../logout">退出</a>
+          </p>
+      </ul>
+     </div>
+     </div>
+
+        {% else %}
+        <!-- 未登录 -->
+        <div id="js_qyer_header_userStatus" class="status">
+          <div class="login show">
+                <!-- <a class="otherlogin-link" href="javascript:;" url="#qq"><img src="{% static "res/icons/qq.png" %}"></a>
+                <a class="otherlogin-link" href="javascript:;" url="#weibo"><img src="{% static "res/icons/weibo.png" %}"></a> -->
+                <a class="otherlogin-link" href="../linkWechat" url="#wechat"><img src="{% static "res/icons/wechat.png" %}"></a>
+
+                <a href="../register" data-bn-ipg="index-head-un-register">注册</a>
+                <a href="../login" data-bn-ipg="index-head-un-login">登录</a>
+          </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+
+{% for item in thistrip %}
+    <!--内容-->
+    <div class="contentwrapper">
+        <div class="cfb-crumbs main">
+            <a href="../home">首页 ></a>
+            <a href="../triplist">行程 ></a>
+            <!--tname-->
+            <h1>{{ item.tname }}</h1>
+        </div>
+        <div id="JS-route-uuid" class="journal-entry main">
+            <div class="journal-hd">
+                <!--tcover-->
+                <img class="journal-hd-img" src={{ item.tcover|safe|escape }} width="960" >
+                <div class="journal-hd-wrap cfb-clearfix">
+                    <div class="txt-area">
+                        <h2 class="title">{{ item.tname }}</h2>
+                        <!--tdest_id-->
+                        <p class="day-location">
+                            ——·{{ item.tdest.dname }}·——
+                        </p>
+                    </div>
+                </div>
+                <div class="img_top">
+                    <a href="javascript:;" class="handle keep " id="JS-add-fav">
+                        <i class="ico-keep"></i>
+                        <p class="action">收藏</p>
+                    </a>
+                </div>
+            </div>
+            <div class="journal-extra">
+                <p><b>简介：</b>
+                    <!--tdescrip-->
+                    {{ item.tdescrip }}
+                </p>
+                <p><b>推荐人群：</b>
+                    <!--tpeople-->
+                     {{ item.tpeople }}
+                </p>
+            </div>
+
+            <div class="journal-bd cfb-clearfix">
+                <!--这里是你要从数据库中的ttrip取过来的东西开始的位置 加safe escape 解决了双引号的问题-->
+
+                {{ content|safe|escape }}
+
+                <div class="journal-aside-list">
+                    <div class="aside-list-wrap" id="float-r">
+                        <div class="journal-handle">
+                            <div class="journal-handle-wrap cfb-clearfix">
+                                <a href="" class="handle visitor" id="JS-visitor">
+                                    <i class="ico-visitor"></i>
+                                    <p class="action"><span>访客</span><span class="count">(78)</span></p>
+                                </a>
+                                <a href="" class="handle comment" id="JS-zan">
+                                    <i class="ico-liked"></i>
+                                    <p class="action"><span>收藏</span><span class="count">(2)</span></p>
+                                </a>
+                                <a href="" class="handle share" id="JS-share">
+                                    <i class="ico-share"></i>
+                                    <p class="action">分享</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="journal-map">
+                            <div id="JS-journal-map" style="position:relative; overflow:hidden;">
+                                <div style="height:100%;width:100%;position:absolute;top:0px;left:0px;background-color:rgb(229,227,223);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<!--底部链接栏-->
+        <div class="global_footer">
+            <div class="footer_inner">
+                <div class="inner_link clear">
+                <dl>
+                <p class="logo_footer index_icons"></p>
+                </dl>
+                <!-- <dl>
+                <dt>联系我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#a" rel="nofollow">意见反馈</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#b" rel="nofollow">广告代理</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#c" rel="nofollow">社区</a>
+                </dd>
+                </dl> -->
+                <dl>
+                <dt>关于我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../member" rel="nofollow">会员条款</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../about" rel="nofollow">候鸟团队</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../aboutTour" rel="nofollow">关于途尔</a>
+                </dd>
+                </dl>
+                <dl class="footer_follow">
+                <dt>关注我们</dt>
+                <dd>
+                <!-- <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#weibo" target="_blank" rel="nofollow">新浪微博</a> -->
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../contact" rel="nofollow">联系我们</a>
+                </dd>
+                </dl>
+                <dl class="footer_wechat">
+                <dt>官方微信</dt>
+                <dd class="wechat_img">
+                  <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#cc" rel="nofollow">
+                  <img src="{% static "res/images/wechat.jpg" %}" width="100px"/>
+                  </a></dd>
+                </dl>
+                <!-- <dl class="footer_appDownload">
+                <dt>APP 下载</dt>
+                <dd class="app_img"></dd>
+                </dl> -->
+                </div>
+
+            </div>
+        </div>
+
+  <script type="text/javascript">
+        var cstring = $('#tripstr').html();
+        if (cstring.substring(0) == "\"") {
+//字符串以"开头，去掉"
+            cstring = cstring.substr(1, cstring.length - 1)
+        }
+        if (cstring.substring(cstring.length - 1) == "\"") {
+//字符串以"结尾，去掉"
+            cstring = cstring.substr(0, cstring.length - 2)
+        }
+        $('#tripstr').val(cstring);
+        console.log($('#tripstr').val());
+    </script>
+
+</body>
+</html>

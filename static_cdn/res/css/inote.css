@@ -1,0 +1,166 @@
+.contentwrapper {
+    padding-top: 80px;
+	margin:0 auto;
+    font-size: 14px;
+    background-color: #f5f5f5 !important;
+    font-family: "Microsoft Yahei";
+}
+.contentwrapper .main {
+    width: 960px;
+    margin: 0 auto;
+    color: #999;
+    padding-bottom: 5px;
+}
+.cfb-crumbs a {
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+    font-family: "Microsoft Yahei Light";
+}
+.cfb-crumbs a:hover{
+    text-decoration: none;
+    color: #21669d;
+    font-size: 12px;
+    font-family: "Microsoft Yahei Light";
+}
+.journal-hd {
+    position: relative;
+    z-index: 4;
+    width: 960px;
+    height: 400px;
+    overflow: hidden;
+    background-color: white;
+}
+.journal-hd .journal-hd-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    width: 840px;
+    padding: 40px 60px;
+    background: -moz-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+.journal-hd .pic-area {
+    float: left;
+    width: 88px;
+    height: 88px;
+    margin-right: 20px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+    background-color: #fff;
+}
+.journal-hd .pic-area img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 4px auto 0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.journal-hd-my .txt-area {
+    width: 600px;
+    margin-top: 10px;
+    float: left;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 2px #000;
+    -webkit-text-shadow: 0 1px 2px #000;
+}
+.journal-hd .txt-area .title {
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: normal;
+    color: #fff;
+}
+.journal-hd .txt-area .pc-desc {
+    font-size: 12px;
+}
+.journal-hd-my .txt-area .day-location {
+    font-size: 16px;
+}
+
+
+.img_top {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 101;
+}
+.img_top a {
+    color: #21669d;
+    text-decoration: none;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+.img_top i {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 5px auto 5px;
+    text-align: center;
+    background: url("../icons/it-like.png");
+}
+.journal-extra {
+    padding-top: 20px;
+    padding-left: 13%;
+    padding-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    border-bottom: 1px solid #e6e6e6;
+}
+.journal-extra p {
+    margin-bottom: 13px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+.journal-extra :last-child {
+    margin-bottom: 0;
+}
+
+.content{
+    width: 70%;
+    margin: 0 quto;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.journal-link {
+    position: relative;
+    height: 60px;
+    padding-left: 15%;
+}
+.journal-link i {
+    color:#21669d;
+    font-size: 14px;
+    margin-right: 10px;
+    font-style: normal;
+    font-weight: bold;
+}
+.journal-link a {
+    font-size: 14px;
+    margin-right: 10px;
+}
+.journal-link a:hover{
+    font-size: 14px;
+    margin-right: 10px;
+    color:#d20000;
+}
+
+.journal-time-line {
+    position: absolute;
+    top: 500px;
+    left: 12%;
+    z-index: 0;
+    width: 4px;
+    height: 50%;
+    background-color: rgba(0,0,0,0.06);
+}
+

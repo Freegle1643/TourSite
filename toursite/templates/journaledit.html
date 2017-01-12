@@ -1,0 +1,258 @@
+{% load staticfiles %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>发布游记 | 途尔</title>
+    <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <link rel="stylesheet" href="{% static "res/external/bootstrap-responsive.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/blogedit.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/bootstrap-datetimepicker.min.css" %}">
+
+    <!--引入wangEditor.css-->
+    <link rel="stylesheet" type="text/css" href="{% static "dist/css/wangEditor.min.css" %}">
+
+    <script src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script src="{% static "res/external/jquery.hotkeys.js" %}"></script>
+    <script src="{% static "res/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/bootstrap-datetimepicker.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/bootstrap-datetimepicker.zh-CN.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/blogedit.js" %}"></script>
+</head>
+
+<body class="edit-body">
+    <!-- <div class="insert-route" hidden>
+        <div class="insert-dialog">
+            <div class="insert-input">
+                <input id="input-label" type="text" name="" value="" placeholder="输入城市|景点" >
+                <div id="insert-label" style="height:60px;text-align: left;margin-top:10px">
+                </div>
+                <a id="button-add-label" class="a-select-01" href="#">添加</a>
+                <a id="button-save-label" class="a-select-01" href="#">保存</a>
+            </div>
+            <div class="insert-close">
+                <img src="{% static "res/icons/close.png" %}">
+            </div>
+        </div>
+    </div> -->
+
+
+<form action="/addjournal/" method="post" name="addform" id="addform">{% csrf_token %}
+
+    <div class="blogedit-content">
+        <div class="blogedit-title">
+            <input id="jname" name="jname" type="text" placeholder="输入游记标题">
+        </div>
+
+        <div class="blogedit-routecard">
+            插入一张封面 <input id="jcover" name="jcover" type="text" placeholder="网络图片地址">
+            <!--
+            <div class="routecard">
+                <div class="datepicker">
+                    <div class="input-group date form_date col-md-5" data-date="" data-date-format="出发时间：yyyy-mm-dd">
+                        <input id="id-blogedit-date" class="form-control" size="16" type="text" placeholder="出发时间" value="" style="height:35px;box-shadow:none" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+                <div class="routetable">
+                    <table id="routetable-table-id" class="routetable-table">
+                        <tr>
+                            <th class="routetable-head" style="width:20%">
+                                <img src="{% static "res/icons/time2.png"> 日期
+                            </th>
+                            <th class="routetable-head">
+                                <img src="{% static "res/icons/city2.png" %}"> 城市
+                            </th>
+                            <th class="routetable-head">
+                                <img src="{% static "res/icons/spot3.png" %}"> 景点
+                            </th>
+                            <th class="routetable-head" style="width:5%"> </th>
+                        </tr>
+                        <tr id="routetable-row-1">
+                            <td class="routetable-date">
+                                Day1
+                            </td>
+                            <td class="routetable-newitem" onclick="openEditTxt(1,1)">
+                                <input id="routetable-input-1-1" type="text" placeholder="新增" readonly>
+                            </td>
+                            <td class="routetable-newitem" onclick="openEditTxt(1,2)">
+                                <input id="routetable-input-1-2" type="text" placeholder="新增" readonly>
+                            </td>
+                            <td class="routetable-option">
+                                <img onclick="deleteOneItem(1)" src="{% static "res/icons/remove.png" %}">
+                            </td>
+                        </tr>
+                        <tr id="table-bottom-id">
+                            <td id="add-item-btn" colspan="5" class="routetable-addoneday">新增一天  <img src="{% static "res/icons/add.png" %}"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div> -->
+        </div>
+        <!-- <div class="blogedit-expense">
+                                 旅行目的地： <input id="id-blogedit-place" type="text" placeholder="本次旅行目的地">
+        </div> -->
+        <div class="blogedit-summary">
+            <p>游记标签</p>
+            <textarea id="jtag" name="jtag" maxlength="50" rows="2" placeholder="例如：六人行，周末，文艺"></textarea>
+            <!-- <div class="blogedit-checkbox">
+                <input type="radio" id="category-food" name="category">
+                <label for="category-food">美食</label>
+                <input type="radio" id="category-shopping" name="category">
+                <label for="category-shopping">购物</label>
+                <input type="radio" id="category-architecture" name="category">
+                <label for="category-architecture">建筑</label>
+                <input type="radio" id="category-scenery" name="category">
+                <label for="category-scenery">风光</label>
+                <input type="radio" id="category-culture" name="category">
+                <label for="category-culture">文化</label><br>
+                <input type="radio" id="category-adventure" name="category">
+                <label for="category-adventure">冒险</label>
+                <input type="radio" id="category-drive" name="category">
+                <label for="category-drive">自驾</label>
+                <input type="radio" id="category-family" name="category">
+                <label for="category-family">骑行</label>
+                <input type="radio" id="category-star" name="category">
+                <label for="category-star">星空</label>
+                <input type="radio" id="category-island" name="category">
+                <label for="category-island">海岛</label>
+            </div> -->
+        </div>
+
+        <div class="blogedit-summary">
+            <p>游记摘要</p>
+            <textarea id="jdescrip" name="jdescrip" maxlength="50" rows="2" placeholder="总结一下你的旅行吧~"></textarea>
+        </div>
+        <div class="blogedit-container">
+            <p>游记正文</p>
+            <div class="container" style="width:100%; margin-top:20px;padding:0;">
+                <div class="hero-unit" style="background:white;padding:0;">
+                <!--编辑器-->
+                    <div id="div1" style="height: 20em ">
+                        <P><font color="black">请输入内容...</font></P>
+                    </div>
+                    <div class="blogedit-submit">
+                       <a id="id-blogedit-submit" name="id-blogedit-submit" class="a-select-01">发布</a>
+                       <a id="id-blogedit-return" class="a-select-01" href="../home" >返回</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+     </div>
+    </form>
+<script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: "zh-CN",
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+
+    </script>
+
+    <!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+    <script type="text/javascript" src="{% static "dist/js/lib/jquery-1.10.2.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "dist/js/wangEditor.min.js" %}"></script>
+
+    <script type="text/javascript">
+            $(function () {
+                var editor = new wangEditor('div1');
+                    // 上传图片（举例）
+                //editor.config.uploadImgUrl = '/upload/';
+                editor.config.uploadImgUrl = 'http://127.0.0.1:8000/upload';
+
+                // 设置 headers（举例）
+                editor.config.uploadHeaders = {
+                    'Accept' : 'text/x-json'
+                };
+
+                // 隐藏掉插入网络图片功能。该配置，只有在你正确配置了图片上传功能之后才可用。
+                editor.config.hideLinkImg = true;
+                editor.create();
+
+
+                $('#id-blogedit-submit').click(function () {
+
+                    //获取游记的其他信息
+                   var jjname=$('#jname').val();
+                   var jjtag=$('#jtag').val();
+                   var jjdes=$('#jdescrip').val();
+
+                   console.log("看一下  "+jjdes,jjtag,jjname);
+                    // 获取编辑器区域完整html代码
+                    var jhtml = editor.$txt.html();//我们要存这个
+
+                    // 获取编辑器纯文本内容
+                    var text = editor.$txt.text();
+                    // 获取格式化后的纯文本
+                    var formatText = editor.$txt.formatText();
+
+                    console.log("完整html代码" + jhtml + "\n" + "纯文本内容" + text + "\n" + "格式化后纯文本" + formatText);
+
+                    //尝试解决Forbidden的问题：
+
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie != '') {
+                            var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                                var cookie = jQuery.trim(cookies[i]);
+                                // Does this cookie string begin with the name we want?
+                                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                }
+                            }
+                        }
+                        return cookieValue;
+                    }
+
+                    var csrftoken = getCookie('csrftoken');
+
+                    function csrfSafeMethod(method) {
+                        // these HTTP methods do not require CSRF protection
+                        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                    }
+
+                    $.ajaxSetup({
+                        beforeSend: function (xhr, settings) {
+                            var csrftoken = getCookie('csrftoken');
+                            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                            }
+                        }
+                    });
+
+                    //用ajax把从前台获取到的wangeditor中的内容发送到后台去
+                    $.ajax({
+                        url: '/addjournal/',
+                        type: 'POST',
+                        data: {jhtml:jhtml,jname:jjname,jtag:jjtag,jdescrip:jjdes},
+                        dataType: 'html',
+                        success: function (result) {
+                            alert('success');
+                            //console.log('Success!');
+                        },
+                        error: function (xhr, status, error) {
+                            //alert('Error:' + error.message);
+                        }
+                    });
+
+                    $('#addform').submit();//提交表单
+                });
+            });
+    </script>
+
+</body>
+
+</html>

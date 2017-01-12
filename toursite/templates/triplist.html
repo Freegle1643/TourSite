@@ -1,0 +1,380 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>行程列表</title>
+        <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+        <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/main-not.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/main-yet.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/css/trip.css" %}">
+        <LINK rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "res/css/jquery.page.css" %}">
+        <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+        <script src="{% static "res/js/jquery.page.js" %}"></script>
+         <script src="{% static "res/js/jquery.searchMeme.js" %}"></script>
+        <!--创建搜索框-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+            var searchbar = $('#search').searchMeme({ onSearch: function (searchText) {
+                    setTimeout(function () {
+                        searchbar.searchMeme({ searchComplete: true });
+                        $('.panel').addClass('go-green').animate({ 'height': 200 }, 500);
+                    }, 3000);
+                }
+                , buttonPlacement: 'right', button: 'green'
+                });
+            });
+        </script>
+    </head>
+
+     <body class="home-body">
+     <!--导航栏-->
+    <div class="header">
+        <div class="header-inner">
+          <a data-bn-ipg="head-logo" href="../home"><img class="logo" src="{% static "res/images/logo.png" %}" width="60" height="18" /></a>
+                    <div class="nav">
+                        <ul class="nav-ul">
+                            <li class="nav-list "><a class="nav-span" href="../triplist" data-bn-ipg="head-nav-place" title="途尔行程">行程</a></li>
+                            <li class="nav-list "><a class="nav-span" href="../forum" data-bn-ipg="head-nav-guide" title="途尔社区">社区</a></li>
+                        </ul>
+                    </div>
+        <!--注册登录-->
+        <div class="fun">
+            <!--搜索框-->
+            <div class="nav_search">
+                <div class="isearch">
+                    <input type="text" id="search"/>
+
+                <div id="id-submenu-search" class="submenu-search" style="display: none">
+
+                     <div class="submenu-search-title">
+                         <a href="../triplist"><p class="search-subTitle">地点</p></a>
+                          <div id="id-submenu-search-user-1" class="submenuList">
+                          <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
+                     </div>
+                     </div>
+
+                      <div class="submenu-search-title">
+                         <a href="../triplist"><p class="search-subTitle">行程</p></a>
+                         <div id="id-submenu-search-user-2" class="submenuList">
+                          <a href="../trip2"><span class="submenu-search-h" >金陵自古帝王州</span></a>
+                     </div>
+
+                     <div id="id-submenu-search-user-4" class="submenuList">
+                          <a href=""><span class="submenu-search-h" >金陵城与花海</span></a>
+                     </div>
+                     </div>
+
+                    <div class="submenu-search-title">
+                         <a href="../forum"><p class="search-subTitle">游记</p></a>
+                         <div id="id-submenu-search-user-5" class="submenuList">
+                          <a href="../journal3"><span class="submenu-search-h" >能不忆金陵</span></a>
+                     </div>
+                     <div id="id-submenu-search-user-6" class="submenuList">
+                          <a href=""><span class="submenu-search-h" >远辰</span></a>
+                     </div>
+                     <div id="id-submenu-search-user-7" class="submenuList" >
+                          <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
+                     </div>
+                     </div>
+
+                </div>
+
+            </div>
+            </div>
+
+
+            <!-- 已登录 -->
+            {% if user.is_authenticated %}
+            <div id="userStatus" class="status">
+    <ul class="user-info show">
+       <!--加了鼠标事件及div改成ul-->
+      {% for item in currentuser %}
+      <p class="userstatus" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+           <span class="avatar"><a href="../personal"><img src="{{item.uico}}" width="32" height="32"></a></span>
+           <span class="username"><a href="../personal">{{item.user.username}}</a></span>
+           <a class="link" href="../logout">退出</a>
+             </p>
+          {% endfor %}
+          </ul>
+         </div>
+         </div>
+
+            {% else %}
+            <!-- 未登录 -->
+            <div id="js_qyer_header_userStatus" class="status">
+              <div class="login show">
+                    <!-- <a class="otherlogin-link" href="javascript:;" url="#qq"><img src="{% static "res/icons/qq.png" %}"></a>
+                    <a class="otherlogin-link" href="javascript:;" url="#weibo"><img src="{% static "res/icons/weibo.png" %}"></a> -->
+                    <a class="otherlogin-link" href="../linkWechat" url="#wechat"><img src="{% static "res/icons/wechat.png" %}"></a>
+
+                    <a href="../register" data-bn-ipg="index-head-un-register">注册</a>
+                    <a href="../login" data-bn-ipg="index-head-un-login">登录</a>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+
+<!--地点-->
+    <div class="contentwrapper"><div class="cfb-crumbs main">
+    <a href="../home" title="首页" target="_blank">首页</a>
+      >
+        <h1>行程</h1>
+    </div>
+
+    <div class="page-title main">
+    <h2 class="title">行程</h2>
+    </div>
+    <!--左侧地点选择栏-->
+    <div class="cfb-journals journal-entry  main">
+        <div class="journal-main cfb-clearfix">
+            <div id="JS-journal-select" class="journal-select">
+                <div id="JS-tabs" class="tabs">
+                    <ul id="nav">
+                    <li><a id="tab-internal" href="javascript:;" class="selected" onclick="change_div('tab-internal')">国内</a></li>
+                    <li><a id="tab-abroad" href="javascript:;" onclick="change_div('tab-abroad')">国外</a></li>
+                    </ul>
+                </div>
+                <div id="JS-cont">
+                    <div class="tag" id="tag" style="display:block">
+                      <a href="javascript:;"><span>北京</span></a>
+                                              <a href="../destination2"><span>南京</span></a>
+                                              <a href="../destination3"><span>西安</span></a>
+                                              <a href="javascript:;"><span>厦门</span></a>
+                                              <a href="javascript:;"><span>桂林</span></a>
+                                              <a href="../destination5"><span>苏州</span><i class="ico-hot"></i></a>
+                                              <a href="javascript:;"><span>三亚</span></a>
+                                              <a href="../destination1"><span>无锡</span></a>
+                                              <a href="javascript:;"><span>哈尔滨</span></a>
+                                              <a href="javascript:;"><span>昆明</span></a>
+                                              <a href="javascript:;"><span>武汉</span></a>
+                                              <a href="javascript:;"><span>杭州</span></a>
+                                              <a href="../destination4"><span>上海</span></a>
+                                              <a href="javascript:;"><span>大连</span></a>
+                                              <a href="javascript:;"><span>青岛</span></a>
+                                              <a href="javascript:;"><span>银川</span></a>
+                                              <a href="javascript:;"><span>拉萨</span></a>
+                                              <a href="javascript:;"><span>太原</span></a>
+                                              <a href="javascript:;"><span>成都</span></a>
+                                              <a href="javascript:;"><span>台湾</span><i class="ico-hot"></i></a>
+                                              <a href="javascript:;"><span>天津</span></a>
+                                              <a href="javascript:;"><span>香港</span><i class="ico-hot"></i></a>
+                                              <a href="javascript:;"><span>丽江</span><i class="ico-hot"></i></a>
+
+                    </div>
+                    <div class="tag" id="tag" style="display:none;">
+                        <a href="javascript:;"><span>阿联酋</span></a>
+                        <a href="javascript:;"><span>澳大利亚</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>奥地利</span></a>
+                        <a href="javascript:;"><span>巴西</span></a>
+                        <a href="javascript:;"><span>比利时</span></a>
+                        <a href="javascript:;"><span>丹麦</span></a>
+                        <a href="javascript:;"><span>德国</span></a>
+                        <a href="javascript:;"><span>俄罗斯</span></a>
+                        <a href="javascript:;"><span>法国</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>梵蒂冈</span></a>
+                        <a href="javascript:;"><span>菲律宾</span></a>
+                        <a href="javascript:;"><span>韩国</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>荷兰</span></a>
+                        <a href="javascript:;"><span>加拿大</span></a>
+                        <a href="javascript:;"><span>柬埔寨</span></a>
+                        <a href="javascript:;"><span>捷克</span></a>
+                        <a href="javascript:;"><span>卢森堡</span></a>
+                        <a href="javascript:;"><span>马来西亚</span></a>
+                        <a href="javascript:;"><span>美国</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>缅甸</span></a>
+                        <a href="javascript:;"><span>摩纳哥</span></a>
+                        <a href="javascript:;"><span>尼泊尔</span></a>
+                        <a href="javascript:;"><span>葡萄牙</span></a>
+                        <a href="javascript:;"><span>日本</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>瑞典</span></a>
+                        <a href="javascript:;"><span>瑞士</span></a>
+                        <a href="javascript:;"><span>斯里兰卡</span></a>
+                        <a href="javascript:;"><span>泰国</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>土耳其</span></a>
+                        <a href="javascript:;"><span>西班牙</span></a>
+                        <a href="javascript:;"><span>希腊</span></a>
+                        <a href="javascript:;"><span>新加坡</span></a>
+                        <a href="javascript:;"><span>新西兰</span></a>
+                        <a href="javascript:;"><span>匈牙利</span></a>
+                        <a href="javascript:;"><span>意大利</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>伊朗</span></a>
+                        <a href="javascript:;"><span>印度</span></a>
+                        <a href="javascript:;"><span>印度尼西亚</span></a>
+                        <a href="javascript:;"><span>英国</span><i class="ico-hot"></i></a>
+                        <a href="javascript:;"><span>越南</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journal-list">
+                <div id="JS-city-list" ></div>
+                <div id="JS-journals" class="city-journals">
+                    <div class="items" data-more-url="/journals/domestic">
+                    <a href="../trip1" class="item journal" target="_blank">
+                        <img class="journal-img" src="/static/res/images/wuxi.jpg" alt="" width="600">
+                        <div class="journal-wrap cfb-clearfix">
+                            <div class="txt-area">
+                                <h2 class="title">漫步无锡</h2>
+                                <h3 class="sub-title">赠君江南一枝春</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="../trip2" class="item journal" target="_blank">
+                        <img class="journal-img" src="/static/res/images/nanjing.jpg" alt="" width="600">
+                        <div class="journal-wrap cfb-clearfix">
+                            <div class="txt-area">
+                                <h2 class="title">石头城记</h2>
+                                <h3 class="sub-title">金陵自古帝王州</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="../trip3" class="item journal" target="_blank">
+                        <img class="journal-img" src="/static/res/images/xian.jpg" alt="" width="600">
+                        <div class="journal-wrap cfb-clearfix">
+                            <div class="txt-area">
+                                <h2 class="title">长安一梦</h2>
+                                <h3 class="sub-title">春风得意马蹄疾</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="../trip4" class="item journal" target="_blank">
+                        <img class="journal-img" src="/static/res/images/sh01.jpg" alt="" width="600">
+                        <div class="journal-wrap cfb-clearfix">
+                            <div class="txt-area">
+                                <h2 class="title">纵情魔都</h2>
+                                <h3 class="sub-title">黄浦浪花千尘雪</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="../trip5" class="item journal" target="_blank">
+                        <img class="journal-img" src="/static/res/images/suzhou.jpg" alt="" width="600">
+                        <div class="journal-wrap cfb-clearfix">
+                            <div class="txt-area">
+                                <h2 class="title">沉醉苏州</h2>
+                                <h3 class="sub-title">醉在吴侬软语中</h3>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div id="page"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部链接栏-->
+        <div class="global_footer">
+            <div class="footer_inner">
+                <div class="inner_link clear">
+                <dl>
+                <p class="logo_footer index_icons"></p>
+                </dl>
+                <!-- <dl>
+                <dt>联系我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#a" rel="nofollow">意见反馈</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#b" rel="nofollow">广告代理</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#c" rel="nofollow">社区</a>
+                </dd>
+                </dl> -->
+                <dl>
+                <dt>关于我们</dt>
+                <dd>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../member" rel="nofollow">会员条款</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../about" rel="nofollow">候鸟团队</a>
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../aboutTour" rel="nofollow">关于途尔</a>
+                </dd>
+                </dl>
+                <dl class="footer_follow">
+                <dt>关注我们</dt>
+                <dd>
+                <!-- <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#weibo" target="_blank" rel="nofollow">新浪微博</a> -->
+                <a class="global_gaNode" data-galabel="home_footer_nav_link" href="../contact" rel="nofollow">联系我们</a>
+                </dd>
+                </dl>
+                <dl class="footer_wechat">
+                <dt>官方微信</dt>
+                <dd class="wechat_img">
+                  <a class="global_gaNode" data-galabel="home_footer_nav_link" href="#cc" rel="nofollow">
+                  <img src="{% static "res/images/wechat.jpg" %}" width="100px"/>
+                  </a></dd>
+                </dl>
+                <!-- <dl class="footer_appDownload">
+                <dt>APP 下载</dt>
+                <dd class="app_img"></dd>
+                </dl> -->
+                </div>
+
+            </div>
+        </div>
+    <script>
+        $(function(){
+            $("#page").Page({
+                totalPages: 16,//分页总数
+                liNums: 7,//分页的数字按钮数
+                activeClass: 'activP',
+                callBack : function(page){
+                    //console.log(page)
+                }
+            });
+        })
+    </script>
+    <script>
+var tabs=function(){
+    function tag(name,elem){
+        return (elem||document).getElementsByTagName(name);
+    }
+    //获得相应ID的元素
+    function id(name){
+        return document.getElementById(name);
+    }
+    function first(elem){
+        elem=elem.firstChild;
+        return elem&&elem.nodeType==1? elem:next(elem);
+    }
+    function next(elem){
+        do{
+            elem=elem.nextSibling;
+        }while(
+            elem&&elem.nodeType!=1
+        )
+        return elem;
+    }
+    return {
+        set:function(elemId,tabId){
+            var elem=tag("li",id(elemId));
+            var tabs=tag("div",id(tabId));
+            var listNum=elem.length;
+            var tabNum=tabs.length;
+            for(var i=0;i<listNum;i++){
+                    elem[i].onclick=(function(i){
+                        return function(){
+                            for(var j=0;j<tabNum;j++){
+                                if(i==j){
+                                    tabs[j].style.display="block";
+                                    //alert(elem[j].firstChild);
+                                    elem[j].firstChild.className="selected";
+                                }
+                                else{
+                                    tabs[j].style.display="none";
+                                    elem[j].firstChild.className="";
+                                }
+                            }
+                        }
+                    })(i)
+            }
+        }
+    }
+}();
+tabs.set("nav","JS-cont");//执行
+</script>
+
+    </body>
+</html>

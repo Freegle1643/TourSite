@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<HTML>
+
+<HEAD>
+    <META charset="utf-8">
+    <TITLE>加入途尔大家庭</TITLE>
+    <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}">
+    <style type="text/css"></style>
+    <style>
+        INPUT[type="text"],
+        INPUT[type="submit"],
+        INPUT[type="password"],
+        INPUT[type="button"] {
+            height: 40px;
+            width: 100%;
+            font-size: 14px;
+            padding-left: 14px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            border: 1px solid #DFDFDF;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+</HEAD>
+
+<BODY id="regbody" class="Registerbody" onload="changeBg()">
+    <DIV id="Register" text-align: center;>
+      <a href="../home">
+        <IMG  class="logo" src="{% static "res/images/loginlogo.png" %}">
+        </a>
+        <FORM id="RegistrationForm" name="RegistrationForm" method="post">
+            {% csrf_token %}
+            <TABLE style="margin:auto;">
+                <CAPTION>注册为<span style="font-weight: bold">途尔</span>会员</CAPTION>
+                <TR>
+                    <TD colspan="2">
+                        <P class="Muststarsty">
+                            <INPUT id="username" name="username" type="text" placeholder="用户名" onblur="checknm()" onfocus="focusnm()">
+                        </P>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="accWarning" hidden>用户名不能为空。</p>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD>
+                        <P class="Waringillegaltxtsty" id="accillegalWarning" hidden>用户名不能包含非法字符。</p>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD colspan="2">
+                        <P class="Muststarsty">
+                            <INPUT id="password1" name="password1" type="password" placeholder="密码（不少于6位）" onblur="checkpw()" onfocus="focuspw()">
+                        </P>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="pwdWarning" hidden>密码不能少于6位。</p>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD colspan="2">
+                        <P class="Muststarsty">
+                            <INPUT id="password2" name="password2" type="password" placeholder="密码确认" onblur="recheckpw()" onfocus="focusrpw()">
+                        </P>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <P class="Waringtxtsty" id="cpwdWarning" hidden>两次输入的密码不一致。</p>
+                    </TD>
+                </TR>
+
+                <!-- <TR>
+                    <TD colspan="2">
+                        <P>
+                            <INPUT class="Radio" type="Radio" name="sex" value="no">男
+                            <INPUT class="Radio" type="Radio" name="sex" value="no">女
+                        </P>
+                    </TD>
+                </TR> -->
+
+                <TR>
+                    <TD colspan="2">
+                        <INPUT id="utag" name="utag" type="text" placeholder="一句话描述自己，用／隔开，如：自驾／学生" onblur="">
+                    </TD>
+                </TR>
+                <TR>
+                    <TD colspan="2">
+                        <INPUT id="usign" name="usign" type="text" placeholder="说点什么" onblur="">
+                    </TD>
+                </TR>
+                <TR>
+                    <TD colspan="2">
+                        <INPUT id="email" name="email" type="text" placeholder="邮箱" onblur="checkhm()">
+                    </TD>
+                </TR>
+                <!-- <TR>
+                    <TD colspan="2">
+                        <DIV class="Styleselect">
+                        <SELECT padding-left="20" name="txtCountry">
+                            <OPTION value="cn">&nbsp中国</OPTION>
+                            <OPTION value="hk">&nbsp香港</OPTION>
+                            <OPTION value="tw">&nbsp台湾</OPTION>
+                            <OPTION value="us">&nbspUnited States</OPTION>
+                            <OPTION value="oths">&nbsp其他</OPTION>
+                        </SELECT>
+                        </DIV>
+                    </TD>
+                </TR> -->
+                <!-- <TR>
+                    <TD colspan="2" align="center">
+                        <P class="Loginpromotion">一旦创建账户，即表明你同意 <span>途尔</span> 的 <A href="privacy.html">隐私政策</A> 和 <A href="provision.html">使用条款</A></P>
+                    </TD>
+                </TR> -->
+                <TR>
+                    <TD colspan="2"  width = 300px>
+                        <INPUT class="btnSubmit" type="submit" value="注册">
+                    </TD>
+                </TR>
+
+    </DIV>
+</BODY>
+
+</HTML>
