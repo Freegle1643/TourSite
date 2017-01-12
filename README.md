@@ -18,3 +18,10 @@ COS
 Cloud Search (云搜)
 #### Contact
 pearl1643@live.com
+#### Usage
+For security reasons, we leave the code to connect DB blank, you can definitly use your own MySQL DB or any other compatible database to run the project. After you configure the database connection code, just by typing:
+```Python
+python manage.py migrate
+python manage.py makemigrations
+```
+You can use our project!
