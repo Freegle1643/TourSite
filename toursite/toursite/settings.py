@@ -83,8 +83,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloudtour_test_03',
         'USER': 'root',
-        'PASSWORD': '******',
-        'HOST': '***.***.***.***',
+        'PASSWORD': 'tour16perfect',
+        'HOST': '585920056acf0.sh.cdb.myqcloud.com',
         'PORT':6935,
     }
 }
