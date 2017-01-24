@@ -117,7 +117,8 @@
         <!--个人中心界面-->
         <div class="user">
           <!-- 地图界面 -->
-            <div class="user-map" id="id-user-map" style="height:400px"></div>
+            <div class="user-map" id="id-user-map" style="height: 36em; width: 56em"></div>
+
         <div class="user-block"  style=height:100%>
             <!-- <div class="user-follows"> -->
                 <div class="user-block-left"></div>
@@ -236,30 +237,18 @@
         </div>
 
 <!-- ECharts单文件引入 -->
-    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="{% static "res/echarts/echarts.js" %}"></script>
+      <script src="{% static "res/echarts/world.js" %}"></script>
+
     <script type="text/javascript">
-        // 路径配置
-        require.config({
-            paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
-            }
-        });
 
-        // 使用
-        require(
-            [
-                'echarts',
-                'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
-            ],
-            function (ec) {
-                // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('id-user-map'));
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('id-user-map'));
 
-              option = {
+        option = {
     title : {
         text: '我的足迹',
         subtext: '来看看你都走过了哪些地方吧！',
-        //sublink : 'http://esa.un.org/wpp/Excel-Data/population.htm',
         x:'center',
         y:'top'
     },
@@ -491,8 +480,7 @@
 
                 // 为echarts对象加载数据
                 myChart.setOption(option);
-            }
-        );
+
     </script>
 
     </body>
