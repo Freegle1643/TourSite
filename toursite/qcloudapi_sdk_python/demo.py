@@ -301,7 +301,6 @@ def main():
 if (__name__ == '__main__'):
     main()
 '''
-
 '''
 upload1(5,'天津','ushd')
 m = search1('天津')
@@ -324,5 +323,4 @@ m = search3('sw')
 print m
 delete(1, 3)
 search3('sw')
-
 '''
