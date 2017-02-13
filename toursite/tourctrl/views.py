@@ -1,5 +1,6 @@
 # coding = utf-8
 
+from __future__ import print_function
 from .forms import *
 from .models import *
 from django.shortcuts import render, render_to_response
@@ -11,12 +12,35 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.template import RequestContext
 from django.db import transaction
 
+import sys
+sys.path.append('../')
+reload(sys)
+sys.setdefaultencoding('utf8')
+from qcloudapi_sdk_python.demo import *
+
 # Create your views here.
 # @login_required(login_url='/login/')
 def home(request):
     alldest = Tourdest.objects.all()
     alltrip = Tourtrip.objects.all()
     alljournal = Tourjournal.objects.all()
+
+    # print alldest
+    # print (alldest.count())  # 7
+
+    # upload the database information to the yunsou
+    for x in range(alldest.count()):
+        # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
+        upload1(alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
+
+    for x in range(alltrip.count()):
+        upload2(alltrip[++x].tid, alltrip[++x].tname, alltrip[++x].tdescrip)
+
+    for x in range(alljournal.count()):
+        # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
+        upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jdescrip)
+
+    # upload1(alldest.did,alldest.dname,alldest.dinfo)
 
     if request.user.is_authenticated():
         if request.user.is_staff:
@@ -68,7 +92,7 @@ def registerpage(request):
             utag=form.cleaned_data['utag'], usign=form.cleaned_data['usign'], uico=uico
             )
             newUser=auth.authenticate(username=username,password=password)
-            print user.date_joined
+            # print user.date_joined
             auth.login(request,newUser)
             return HttpResponseRedirect('../home/')
     else:

@@ -7,7 +7,7 @@ import ConfigParser
 import string, os, sys
 
 cf = ConfigParser.ConfigParser()
-cf.read("../qcloudapi_sdk_python/appconfig.conf")#已用相对路径改好了
+cf.read("qcloudapi_sdk_python/appconfig.conf")#已用相对路径改好了
 
 module = 'yunsou'
 action1 = 'DataManipulation'
