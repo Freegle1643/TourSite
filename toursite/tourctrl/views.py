@@ -34,11 +34,11 @@ def home(request):
         upload1(alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
 
     for x in range(alltrip.count()):
-        upload2(alltrip[++x].tid, alltrip[++x].tname, alltrip[++x].tdescrip)
+        upload2(alltrip[++x].tid, alltrip[++x].tdays, alltrip[++x].tname,alltrip[++x].tdescrip,alltrip[++x].tpeople,alltrip[++x].tdest)
 
     for x in range(alljournal.count()):
         # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
-        upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jdescrip)
+        upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jtag)
 
     # upload1(alldest.did,alldest.dname,alldest.dinfo)
 

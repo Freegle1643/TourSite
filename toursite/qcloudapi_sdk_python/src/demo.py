@@ -7,7 +7,7 @@ import ConfigParser
 import string, os, sys
 
 cf = ConfigParser.ConfigParser()
-cf.read("qcloudapi_sdk_python/appconfig.conf")#已用相对路径改好了
+cf.read("qcloudapi_sdk_python/appconfig.conf")#相对路径修改，记住用/
 
 module = 'yunsou'
 action1 = 'DataManipulation'
@@ -308,21 +308,20 @@ m = search1('天津')
 print m
 delete(5,1)
 search1('天津')
+'''
 
-
-
+'''
 upload2(1,12,'南京dsd','dwhde','sdd','dsds')
 m = search2('南京')
 print m
 delete(1, 2)
 search2('南京')
+'''
 
-
-
+'''
 upload3(1,'无锡','swh')
 m = search3('sw')
 print m
 delete(1, 3)
 search3('sw')
-
 '''
