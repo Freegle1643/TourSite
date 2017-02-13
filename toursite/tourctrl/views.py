@@ -10,7 +10,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect,HttpResponse
 from django.template import RequestContext
 from django.db import transaction
-from ..qclodapi_sdk_python,demo import *
 
 # Create your views here.
 # @login_required(login_url='/login/')
@@ -19,7 +18,6 @@ def home(request):
     alltrip = Tourtrip.objects.all()
     alljournal = Tourjournal.objects.all()
 
-    upload1(alldest.did,alldest.dname,alldest.dinfo)
     if request.user.is_authenticated():
         if request.user.is_staff:
             return HttpResponseRedirect('../admin')

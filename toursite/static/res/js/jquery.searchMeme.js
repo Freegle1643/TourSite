@@ -67,7 +67,7 @@
                 }).click(function () { searchBox.removeClass('searchMeme-water-mark').val(''); return false; }).blur(function () {
                     if ($(this).val() != '')
                         {$(this).addClass('searchMeme-water-mark');
-                        suggestWrap.hide();
+                        suggestWrap.show();
                     }
                     if ($(this).val() == '')
                         {$(this).addClass('searchMeme-water-mark');
