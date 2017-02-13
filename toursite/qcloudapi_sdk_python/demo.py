@@ -7,7 +7,7 @@ import ConfigParser
 import string, os, sys
 
 cf = ConfigParser.ConfigParser()
-cf.read("appconfig.conf")
+cf.read("../qcloudapi_sdk_python/appconfig.conf")#已用相对路径改好了
 
 module = 'yunsou'
 action1 = 'DataManipulation'
@@ -40,6 +40,7 @@ paramsupload3 = {
     'op_type': 'add',
     'appId': appId3,
 }
+
 '''
 数据上传
 paramsupload = {
@@ -56,6 +57,7 @@ paramsdelete = {
     'appId': appId1,
     'contents.0.doc_id': -1,
 }
+
 '''
 数据删除，doc_id为主键
 params = {
@@ -71,6 +73,7 @@ paramssearch = {
     "page_id" : 0,
     "num_per_page" : 10,
 }
+
 '''
 params = {
     "appId" : 54550002,
@@ -104,12 +107,14 @@ def upload1(did, dname, dinfo):
     return True
     #检查是否成功，错误返回信息写入日志
 
-def upload2(tid, tname, tpeople, tdest):
+def upload2(tid, tdays, tname, tdescrip, tpeople, tdest):
     paramsupload2['appId'] = appId2
     paramsupload2['contents.0.tname'] = tname
+    paramsupload2['contents.0.tdescrip'] = tdescrip
     paramsupload2['contents.0.tpeople'] = tpeople
     paramsupload2['contents.0.tdest'] = tdest
     paramsupload2['contents.0.id'] = tid
+    paramsupload2['contents.0.tdays'] = tdays
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsupload2)
     info = service.call(action1, paramsupload2)
@@ -128,11 +133,10 @@ def upload2(tid, tname, tpeople, tdest):
     return True
     #检查是否成功，错误返回信息写入日志
 
-def upload3(jid, jname, jdest, jcontent):
+def upload3(jid, jname, jtag):
     paramsupload3['appId'] = appId3
     paramsupload3['contents.0.jname'] = jname
-    paramsupload3['contents.0.jdest'] = jdest
-    paramsupload3['contents.0.jcontent'] = jcontent
+    paramsupload3['contents.0.jtag'] = jtag
     paramsupload3['contents.0.id'] = jid
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsupload3)
@@ -198,16 +202,16 @@ def search1(query):
         output.write(info)
         output.write("\n")
         output.close()
-        return [{'dinfo':'False','dname':'False','id':-1}]
+        return [{'id':-1,'dname':'False','dinfo':'False'}]
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
     pport = {}
     ppport = []
     for i in range(0, counter):
-        pport['dinfo'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
+        pport['id'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
         pport['dname'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
-        pport['id'] = port[i][2]
+        pport['dinfo'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
         ppport.append(pport)
     return ppport
 
@@ -221,7 +225,7 @@ def search2(query):
     print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"tdest\\\\":\\\\"(.+)\\\\",\\\\"tpeople\\\\":\\\\"(.+)\\\\",\\\\"tname\\\\":\\\\"(.+)\\\\",\\\\"id\\\\":\\\\"(.+)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+)\\\\",\\\\"tdays\\\\":\\\\"(.+)\\\\",\\\\"tdescrip\\\\":\\\\"(.+)\\\\",\\\\"tdest\\\\":\\\\"(.+)\\\\",\\\\"tname\\\\":\\\\"(.+)\\\\",\\\\"tpeople\\\\":\\\\"(.+)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -229,17 +233,19 @@ def search2(query):
         output.write(info)
         output.write("\n")
         output.close()
-        return [{'tdest':'False','tpeople':'False','tname':'False','id':-1}]
+        return [{'id':-1,'tdays':'False','tname':'False','tdescrip':'False','tpeople':'False','tdest':'False'}]
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
     pport = {}
     ppport = []
     for i in range(0, counter):
-        pport['tdest'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
-        pport['tpeople'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
-        pport['tname'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
-        pport['id'] = port[i][3]
+        pport['id'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
+        pport['tdays'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
+        pport['tname'] = (port[i][4].decode('raw_unicode_escape')).encode("utf-8")
+        pport['tdescrip'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
+        pport['tpeople'] = (port[i][5].decode('raw_unicode_escape')).encode("utf-8")
+        pport['tdest'] = (port[i][3].decode('raw_unicode_escape')).encode("utf-8")
         ppport.append(pport)
     return ppport
 
@@ -253,7 +259,7 @@ def search3(query):
     print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"jcontent\\\\":\\\\"(.+)\\\\",\\\\"jdest\\\\":\\\\"(.+)\\\\",\\\\"jname\\\\":\\\\"(.+)\\\\",\\\\"id\\\\":\\\\"(.+)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+)\\\\",\\\\"jname\\\\":\\\\"(.+)\\\\",\\\\"jtag\\\\":\\\\"(.+)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -261,19 +267,28 @@ def search3(query):
         output.write(info)
         output.write("\n")
         output.close()
-        return [{'jcontent':'False','jdest':'False','jname':'False','id':-1}]
+        return [{'id':-1,'jname':'False','jtag':'False'}]
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
     pport = {}
     ppport = []
     for i in range(0, counter):
-        pport['jcontent'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
-        pport['jdest'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
-        pport['jname'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
-        pport['id'] = port[i][3]
+        pport['id'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
+        pport['jname'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
+        pport['jtag'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
         ppport.append(pport)
     return ppport
+
+def searchall(query):
+    searchallresult = {}
+    destin = search1(query)
+    trip = search2(query)
+    jouurnal = search3(query)
+    searchallresult['destin'] = destin
+    searchallresult['trip'] = trip
+    searchallresult['jouurnal'] = jouurnal
+    return searchallresult
 
 '''
 def main():
@@ -283,15 +298,29 @@ def main():
     #service.setRequestMethod('get')
     #print service.call('DescribeCdnEntities', {})
 
-
 if (__name__ == '__main__'):
     main()
 '''
 
-'''
-upload1(1,'无锡','123')
-upload1(2,'南京','1234')
-'''
+upload1(5,'天津','ushd')
+m = search1('天津')
+print m
+delete(5,1)
+search1('天津')
 
-m = search1('南京')
-print m[0]['dname']
+
+
+upload2(1,12,'南京dsd','dwhde','sdd','dsds')
+m = search2('南京')
+print m
+delete(1, 2)
+search2('南京')
+
+
+
+upload3(1,'无锡','swh')
+m = search3('sw')
+print m
+delete(1, 3)
+search3('sw')
+

@@ -1,0 +1,2 @@
+upload error:
+https://yunsou.api.qcloud.com/v2/index.php?Nonce=1923846908&appId=55490002&RequestClient=SDK_PYTHON_1.1&Timestamp=1486955700&Region=gz&contents.0.jtag=swh&Signature=MP%2BMmTxtnIVgfr4RsDAGdWig4j8%3D&SecretId=AKIDnn8A78SwsA7kYTvZDyt5iwZ1bIeRb84I&contents.0.id=1&contents.0.jname=%E6%97%A0%E9%94%A1&op_type=add&Action=DataManipulation{"code":5100,"message":"\u8bf7\u6c42\u4e91\u641c\u63a5\u53e3\u9519\u8bef::-1","codeDesc":"ResourceOpFailed"}
