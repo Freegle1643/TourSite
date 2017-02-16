@@ -293,7 +293,27 @@ def yunsou(request):
         if request.method == 'POST':
             print ('come to yunsou ajax...')
             print (request.POST['searchTarget'])
+            target = request.POST['searchTarget']
 
-            # use yunsou to search searchTarget from database
+            # use yunsou to search searchTarget
+            ddifExist = searchall(target)['destin'][0]['id']
+            ttifExist = searchall(target)['trip'][0]['id']
+            jjifExist = searchall(target)['jouurnal'][0]['id']
 
-        return HttpResponse('ok')
+            if ddifExist == -1: # no result
+                ddresult = 'No Result'
+            else:
+                ddresult = searchall(target)['destin'][0]['dname']
+
+            if ttifExist == -1:
+                ttresult = 'No Result'
+            else:
+                ttresult = searchall(target)['trip']['tname']
+
+            if jjifExist == -1:
+                jjresult = 'No Result'
+            else:
+                jjresult = searchall(target)['jouurnal']['jname']
+
+
+        return HttpResponse({'ddresult':ddresult},{'ttresult':ttresult},{'jjresult':jjresult})

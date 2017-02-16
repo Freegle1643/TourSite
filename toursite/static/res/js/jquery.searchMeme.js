@@ -54,7 +54,6 @@
                         //用户输入了东西 调用云搜进行检测
                         //在这里写Ajax请求拿到云搜返回的数据
 
-                        console.log('先看看你小子进来没？');
                         //尝试解决Forbidden的问题：
 
                     function getCookie(name) {
@@ -91,12 +90,12 @@
 
                       var usercontent = $(this).val();
 
-                    //用ajax把从前台获取到的wangeditor中的内容发送到后台去
+                    //用ajax把从前台获取到的搜索框中的内容发送到后台去
                     $.ajax({
                         url: '/yunsou/',
                         type: 'POST',
                         data: {searchTarget:usercontent},
-                        dataType: 'html',
+                        dataType: 'json',
                         success: function (result) {
                             alert('try yunsou success');
                             console.log(result);
