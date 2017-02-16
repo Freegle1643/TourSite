@@ -50,6 +50,62 @@
                 $('input').bind('input propertychange', function() {
                     if ($(this).val() != '')
                         {$(this).addClass('searchMeme-water-mark');
+
+                        //用户输入了东西 调用云搜进行检测
+                        //在这里写Ajax请求拿到云搜返回的数据
+
+                        console.log('先看看你小子进来没？');
+                        //尝试解决Forbidden的问题：
+
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie != '') {
+                            var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                                var cookie = jQuery.trim(cookies[i]);
+                                // Does this cookie string begin with the name we want?
+                                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                }
+                            }
+                        }
+                        return cookieValue;
+                    }
+
+                    var csrftoken = getCookie('csrftoken');
+
+                    function csrfSafeMethod(method) {
+                        // these HTTP methods do not require CSRF protection
+                        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                    }
+
+                    $.ajaxSetup({
+                        beforeSend: function (xhr, settings) {
+                            var csrftoken = getCookie('csrftoken');
+                            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                            }
+                        }
+                    });
+
+                      var usercontent = $(this).val();
+
+                    //用ajax把从前台获取到的wangeditor中的内容发送到后台去
+                    $.ajax({
+                        url: '/yunsou/',
+                        type: 'POST',
+                        data: {searchTarget:usercontent},
+                        dataType: 'html',
+                        success: function (result) {
+                            alert('try yunsou success');
+                            console.log(result);
+                        },
+                        error: function (xhr, status, error) {
+                            //alert('Error:' + error.message);
+                        }
+                    });
+
                         suggestWrap.show();
                     }
                     if ($(this).val() == '')
@@ -57,8 +113,6 @@
                         suggestWrap.hide();
                     }
                 });
-
-
 
                 searchBox.keydown(function (e) {
                     if (e.which == 13) {

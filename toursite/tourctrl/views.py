@@ -29,18 +29,16 @@ def home(request):
     # print (alldest.count())  # 7
 
     # upload the database information to the yunsou
-    for x in range(alldest.count()):
-        # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
-        upload1(alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
 
-    for x in range(alltrip.count()):
-        upload2(alltrip[++x].tid, alltrip[++x].tdays, alltrip[++x].tname,alltrip[++x].tdescrip,alltrip[++x].tpeople,alltrip[++x].tdest)
-
-    for x in range(alljournal.count()):
-        # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
-        upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jtag)
-
-    # upload1(alldest.did,alldest.dname,alldest.dinfo)
+    # for x in range(alldest.count()):
+    #     # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
+    #      upload1(alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
+    #
+    # for x in range(alltrip.count()):
+    #      upload2(alltrip[++x].tid, alltrip[++x].tdays, alltrip[++x].tname,alltrip[++x].tdescrip,alltrip[++x].tpeople,alltrip[++x].tdest)
+    #
+    # for x in range(alljournal.count()):
+    #      upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jtag)
 
     if request.user.is_authenticated():
         if request.user.is_staff:
@@ -289,3 +287,13 @@ def contact(request):
             return render(request, 'about.html', {'currentuser': userobject})
     else:
         return render(request, 'contact.html', {})
+
+def yunsou(request):
+    if request.is_ajax():
+        if request.method == 'POST':
+            print ('come to yunsou ajax...')
+            print (request.POST['searchTarget'])
+
+            # use yunsou to search searchTarget from database
+
+        return HttpResponse('ok')
