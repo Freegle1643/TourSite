@@ -105,6 +105,7 @@
                         }
                     });
 
+                    //展示下拉框
                         suggestWrap.show();
                     }
                     if ($(this).val() == '')
