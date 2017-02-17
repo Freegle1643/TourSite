@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_protect
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse,HttpResponseNotFound
 from django.template import RequestContext
 from django.db import transaction
 
@@ -295,25 +295,26 @@ def yunsou(request):
             print (request.POST['searchTarget'])
             target = request.POST['searchTarget']
 
+    return HttpResponse('<h1>Page was found</h1>')
+
             # use yunsou to search searchTarget
-            ddifExist = searchall(target)['destin'][0]['id']
-            ttifExist = searchall(target)['trip'][0]['id']
-            jjifExist = searchall(target)['jouurnal'][0]['id']
+            # ddifExist = searchall(target)['destin']
+            # ttifExist = searchall(target)['trip']
+            # jjifExist = searchall(target)['jouurnal']
+            #
+            # if ddifExist: # no result
+            #     ddresult = 'No Result'
+            # else:
+            #     ddresult = searchall(target)['destin'][0]['dname']
+            #
+            # if ttifExist:
+            #     ttresult = 'No Result'
+            # else:
+            #     ttresult = searchall(target)['trip']['tname']
+            #
+            # if jjifExist:
+            #     jjresult = 'No Result'
+            # else:
+            #     jjresult = searchall(target)['jouurnal']['jname']
 
-            if ddifExist == -1: # no result
-                ddresult = 'No Result'
-            else:
-                ddresult = searchall(target)['destin'][0]['dname']
-
-            if ttifExist == -1:
-                ttresult = 'No Result'
-            else:
-                ttresult = searchall(target)['trip']['tname']
-
-            if jjifExist == -1:
-                jjresult = 'No Result'
-            else:
-                jjresult = searchall(target)['jouurnal']['jname']
-
-
-        return HttpResponse({'ddresult':ddresult},{'ttresult':ttresult},{'jjresult':jjresult})
+        # return HttpResponse({'ddresult':ddresult},{'ttresult':ttresult},{'jjresult':jjresult})

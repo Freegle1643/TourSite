@@ -95,13 +95,13 @@
                         url: '/yunsou/',
                         type: 'POST',
                         data: {searchTarget:usercontent},
-                        dataType: 'json',
+                        dataType: 'html',
                         success: function (result) {
                             alert('try yunsou success');
                             console.log(result);
                         },
                         error: function (xhr, status, error) {
-                            //alert('Error:' + error.message);
+                            alert('!Error:' + error.message);
                         }
                     });
 
