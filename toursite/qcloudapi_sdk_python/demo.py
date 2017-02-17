@@ -92,8 +92,6 @@ def upload1(did, dname, dinfo):
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsupload1)
     info = service.call(action1, paramsupload1)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"errmsg":"(\w+)",')
     if re1.findall(info) != ['0'] or re2.findall(info) != ['succ']:
@@ -118,8 +116,6 @@ def upload2(tid, tdays, tname, tdescrip, tpeople, tdest):
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsupload2)
     info = service.call(action1, paramsupload2)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"errmsg":"(\w+)",')
     if re1.findall(info) != ['0'] or re2.findall(info) != ['succ']:
@@ -141,8 +137,6 @@ def upload3(jid, jname, jtag):
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsupload3)
     info = service.call(action1, paramsupload3)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"errmsg":"(\w+)",')
     if re1.findall(info) != ['0'] or re2.findall(info) != ['succ']:
@@ -169,8 +163,6 @@ def delete(doc_id, appId):
     service = QcloudApi(module, config)
     url = service.generateUrl(action1, paramsdelete)
     info = service.call(action1, paramsdelete)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"errmsg":"(\w+)",')
     if re1.findall(info) != ['0'] or re2.findall(info) != ['succ']:
@@ -190,11 +182,9 @@ def search1(query):
     service = QcloudApi(module, config)
     url = service.generateUrl(action2, paramssearch)
     info = (service.call(action2, paramssearch)).encode('utf-8')
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"dinfo\\\\":\\\\"(.+)\\\\",\\\\"dname\\\\":\\\\"(.+)\\\\",\\\\"id\\\\":\\\\"(.+)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"dinfo\\\\":\\\\"(.+?)\\\\",\\\\"dname\\\\":\\\\"(.+?)\\\\",\\\\"id\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -221,11 +211,9 @@ def search2(query):
     service = QcloudApi(module, config)
     url = service.generateUrl(action2, paramssearch)
     info = service.call(action2, paramssearch)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+)\\\\",\\\\"tdays\\\\":\\\\"(.+)\\\\",\\\\"tdescrip\\\\":\\\\"(.+)\\\\",\\\\"tdest\\\\":\\\\"(.+)\\\\",\\\\"tname\\\\":\\\\"(.+)\\\\",\\\\"tpeople\\\\":\\\\"(.+)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"tdays\\\\":\\\\"(.+?)\\\\",\\\\"tdescrip\\\\":\\\\"(.+?)\\\\",\\\\"tdest\\\\":\\\\"(.+?)\\\\",\\\\"tname\\\\":\\\\"(.+?)\\\\",\\\\"tpeople\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -255,11 +243,9 @@ def search3(query):
     service = QcloudApi(module, config)
     url = service.generateUrl(action2, paramssearch)
     info = service.call(action2, paramssearch)
-    print url
-    print info
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+)\\\\",\\\\"jname\\\\":\\\\"(.+)\\\\",\\\\"jtag\\\\":\\\\"(.+)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"jname\\\\":\\\\"(.+?)\\\\",\\\\"jtag\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -284,10 +270,10 @@ def searchall(query):
     searchallresult = {}
     destin = search1(query)
     trip = search2(query)
-    jouurnal = search3(query)
+    journal = search3(query)
     searchallresult['destin'] = destin
     searchallresult['trip'] = trip
-    searchallresult['jouurnal'] = jouurnal
+    searchallresult['journal'] = journal
     return searchallresult
 
 '''
