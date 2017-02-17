@@ -297,6 +297,7 @@ def yunsou(request):
 
     return HttpResponse('<h1>Page was found</h1>')
 
+
             # use yunsou to search searchTarget
             # ddifExist = searchall(target)['destin']
             # ttifExist = searchall(target)['trip']
