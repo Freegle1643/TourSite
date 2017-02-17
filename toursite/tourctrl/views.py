@@ -220,7 +220,9 @@ def profile(request):
             return HttpResponseRedirect('../admin')
         else:
             userobject = Touruser.objects.all().filter(user = request.user.id)
-            return render(request, 'userprofile.html' , {'currentuser':userobject})
+            tuser = Touruser.objects.get(user=request.user.id)
+            myjournal = Tourjournal.objects.all().filter(juser = tuser)
+            return render(request, 'userprofile.html' , {'currentuser':userobject, 'myjournal':myjournal})
 
 @login_required(login_url='../login/')
 def editprofile(request):
@@ -229,7 +231,9 @@ def editprofile(request):
             return HttpResponseRedirect('../admin')
         else:
             userobject = Touruser.objects.all().filter(user = request.user.id)
-            return render(request, 'userprofileedit.html' , {'currentuser':userobject})
+            tuser = Touruser.objects.get(user=request.user.id)
+            myjournal = Tourjournal.objects.all().filter(juser = tuser)
+            return render(request, 'userprofileedit.html' , {'currentuser':userobject, 'myjournal':myjournal})
 
 def aboutpage(request):
     if request.user.is_authenticated():
@@ -272,7 +276,7 @@ def member(request):
         else:
             userobject = Touruser.objects.all().filter(user=request.user.id)
             # print request.user.id
-            return render(request, 'about.html', {'currentuser': userobject})
+            return render(request, 'member.html', {'currentuser': userobject})
     else:
         return render(request, 'member.html', {})
 
@@ -284,9 +288,31 @@ def contact(request):
         else:
             userobject = Touruser.objects.all().filter(user=request.user.id)
             # print request.user.id
-            return render(request, 'about.html', {'currentuser': userobject})
+            return render(request, 'contact.html', {'currentuser': userobject})
     else:
         return render(request, 'contact.html', {})
+
+def feature_south(request):
+    if request.user.is_authenticated():
+        if request.user.is_staff:
+            return HttpResponseRedirect('../admin')
+        else:
+            userobject = Touruser.objects.all().filter(user=request.user.id)
+            # print request.user.id
+            return render(request, 'feature_south.html', {'currentuser': userobject})
+    else:
+        return render(request, 'feature_south.html', {})
+
+def feature_north(request):
+    if request.user.is_authenticated():
+        if request.user.is_staff:
+            return HttpResponseRedirect('../admin')
+        else:
+            userobject = Touruser.objects.all().filter(user=request.user.id)
+            # print request.user.id
+            return render(request, 'feature_north.html', {'currentuser': userobject})
+    else:
+        return render(request, 'feature_north.html', {})
 
 def yunsou(request):
     if request.is_ajax():

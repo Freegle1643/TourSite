@@ -119,6 +119,7 @@
     <div class="user">
         <!-- <div class="user-map" id="id-user-map"></div> -->
         <div class="user-block">
+          <div class="user-follows">
             <div class="user-block-left">
                 <form>
                 <table class="user-data">
@@ -199,7 +200,27 @@
                 </table>
                 </form>
             </div>
+            <div class="user-myblogs">
+                <div class="user-title">
+                    <a style="margin-left: 5px;" class="title" href="{% static "res/icons/more.png" %}">我的游记</a>
+                    <a href="../personal" title="点击查看我的全部游记"><img style="float: right;margin 6px;" class="icons" src="{% static "res/icons/more.png" %}"/></a>
+                </div>
+                {% for item in myjournal%}
+                <div class="user-myblogs-content">
+                <div class="user-follows-done-r" style="padding-top: 5px;">
+                     <img class="p-user-follows-img" src={{ item.jcover }} />
+                </div>
+                <div class="user-myblogs-content-scan">
+                    <a id="id-first-blog-title" style="padding-left: 10px" class="title" href="../journal{{item.jid}}">{{ item.jname }}</a>
+                    <div id="id-first-blog-brief" class="user-myblogs-content-brief">
+                            {{ item.jdescrip }}
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
+      </div>
     </div>
 
 <!--底部链接栏-->

@@ -119,19 +119,16 @@
     <div class="user">
         <!-- <div class="user-map" id="id-user-map"></div> -->
         <div class="user-block">
+          <div class="user-follows">
             <div class="user-block-left">
+              {% for item in currentuser %}
+
+
+              <div id="id-user-information-block" class="user-information-block">
+              <a style="width:100%; text-align:center;" class="fogPwdlink" href="../personal"> <— {{item.user.username}}</a>
+              <a style="width:100%; text-align:center;" class="a-select-01" href="../editprofile">编辑个人资料</a>
+
                 <table class="user-data">
-                  {% for item in currentuser %}
-                    <tr>
-                        <td style="padding: 0px 15px">
-                            <a class="fogPwdlink" href="../personal">返回个人中心 <— {{item.user.username}}</a>
-                        </td>
-
-                        <td style="padding-right: 15px;;text-align: right">
-                            <a class="a-select-01" style="margin: 0;" href="../editprofile">编辑个人资料</a>
-                        </td>
-                    </tr>
-
                     <tr>
                         <td>
                             头像
@@ -208,7 +205,27 @@
                     {% endfor %}
                 </table>
             </div>
+            <div class="user-myblogs">
+                <div class="user-title">
+                    <a style="margin-left: 5px;" class="title" href="{% static "res/icons/more.png" %}">我的游记</a>
+                    <a href="../personal" title="点击查看我的全部游记"><img style="float: right;margin 6px;" class="icons" src="{% static "res/icons/more.png" %}"/></a>
+                </div>
+                {% for item in myjournal%}
+                <div class="user-myblogs-content">
+                <div class="user-follows-done-r" style="padding-top: 5px;">
+                     <img class="p-user-follows-img" src={{ item.jcover }} />
+                </div>
+                <div class="user-myblogs-content-scan">
+                    <a id="id-first-blog-title" style="padding-left: 10px" class="title" href="../journal{{item.jid}}">{{ item.jname }}</a>
+                    <div id="id-first-blog-brief" class="user-myblogs-content-brief">
+                            {{ item.jdescrip }}
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
+          </div>
     </div>
 
 <!--底部链接栏-->

@@ -1,0 +1,144 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>途尔北方精选</title>
+  <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/feature.css" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/jquery.fullpage.css" %}" >
+    <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/jquery.fullpage.js" %}"></script>
+</head>
+
+<body style="position: relative;">
+    <div class="back-to-home"><a href="../home"><img src="{% static "res/images/" %}"/></a></div>
+    <div id="fullpage">
+        <div class="section section-head active" id="section1">
+            <div id="id-feature-head" class="be-black" style="top: 0px;display: none;">
+                <div style="margin-top: 15%">
+            <h1>我在北方</h1>
+            <p>
+                在这里，敬请欣赏TOUR为您精心整理的北方。<br/>
+                让我们一起领略北方的好去处。<br/>
+                途尔，一路有你。
+            </p>
+               <div style="width:400px;height:100px;margin: 0px auto;"> <div class="back-to-home"><a href="../home"><img src="{% static "res/images/logo1.png" %}"/></a></div></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-page-1" id="section2">
+            <div class="be-black">
+            <div class="section-content">
+                <p class="section-preview">
+                    <span style="font-size: 26px;">乌镇：枕水人家的恬淡</span><br/><br/><br/>
+                    《似水年华》中有人这样形容“乌镇永远是乌镇，在这江南水乡的最美的一隅……如黄昏的一帘幽梦”。这就是乌镇，枕水人家的安静与恬淡，任凭时光流逝，唯不变那份从容。
+                    <br/>
+                   <span style="font-size: 10px;float: right;">——途尔，一路有你</span>
+                </p>
+
+                <p class="section-quote">
+                    <b class="quotation-left">“</b>
+                    乌镇啊，你就是那黄昏的一帘幽梦
+                    <b class="quotation-right">”</b>
+                </p>
+            </div>
+
+
+            </div>
+        </div>
+
+        <div class="section section-page-2" id="section3">
+            <div class="be-black">
+            <div class="section-content">
+                <p class="section-preview">
+                    <span style="font-size: 26px;">乌镇：枕水人家的恬淡</span><br/><br/><br/>
+                    《似水年华》中有人这样形容“乌镇永远是乌镇，在这江南水乡的最美的一隅……如黄昏的一帘幽梦”。这就是乌镇，枕水人家的安静与恬淡，任凭时光流逝，唯不变那份从容。
+                    <br/>
+                   <span style="font-size: 10px;float: right;">——途尔，一路有你</span>
+                </p>
+
+                <p class="section-quote">
+                    <b class="quotation-left">“</b>
+                    乌镇啊，你就是那黄昏的一帘幽梦
+                    <b class="quotation-right">”</b>
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="section section-page-3" id="section4">
+            <div class="be-black">
+            <div class="section-content">
+                <p class="section-preview">
+                    <span style="font-size: 26px;">乌镇：枕水人家的恬淡</span><br/><br/><br/>
+                    《似水年华》中有人这样形容“乌镇永远是乌镇，在这江南水乡的最美的一隅……如黄昏的一帘幽梦”。这就是乌镇，枕水人家的安静与恬淡，任凭时光流逝，唯不变那份从容。
+                    <br/>
+                   <span style="font-size: 10px;float: right;">——途尔，一路有你</span>
+                </p>
+
+                <p class="section-quote">
+                    <b class="quotation-left">“</b>
+                    乌镇啊，你就是那黄昏的一帘幽梦
+                    <b class="quotation-right">”</b>
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="section section-page-4" id="section5">
+            <div class="be-black">
+            <div class="section-content">
+                <p class="section-preview">
+                    <span style="font-size: 26px;">乌镇：枕水人家的恬淡</span><br/><br/><br/>
+                    《似水年华》中有人这样形容“乌镇永远是乌镇，在这江南水乡的最美的一隅……如黄昏的一帘幽梦”。这就是乌镇，枕水人家的安静与恬淡，任凭时光流逝，唯不变那份从容。
+                    <br/>
+                   <span style="font-size: 10px;float: right;">——途尔，一路有你</span>
+                </p>
+
+                <p class="section-quote">
+                    <b class="quotation-left">“</b>
+                    乌镇啊，你就是那黄昏的一帘幽梦
+                    <b class="quotation-right">”</b>
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+        <script src="res/js/move.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $('#fullpage').fullpage({
+                srcollingSpeed: 500,
+                'navigation': true,
+                'navigationPosition': 'right',
+                'afterLoad': function(link,index) {
+                    switch(index){
+                        case 1:
+                        $("#id-feature-head").fadeIn(2000);
+                        break;
+                        case 2:
+                        move('#section2 div.be-black').set('top',0).end();
+                        break;
+                        case 3:
+                        move('#section3 div.be-black').set('top',0).end();
+                        break;
+                        case 4:
+                        move('#section4 div.be-black').set('top',0).end();
+                        break;
+                        case 5:
+                        move('#section5 div.be-black').set('top',0).end();
+                        break;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

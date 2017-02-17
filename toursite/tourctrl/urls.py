@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^aboutTour/$',aboutTour),
     url(r'^member/$',member),
     url(r'^contact/$',contact),
-    url(r'^yunsou/$',yunsou)
+    url(r'^yunsou/$',yunsou),
+    url(r'^feature_south/$',feature_south),
+    url(r'^feature_north/$',feature_north),
 ]
