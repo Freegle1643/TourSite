@@ -1,4 +1,4 @@
-# coding = utf-8
+# -*- coding:UTF-8 -*-
 
 from __future__ import print_function
 from .forms import *
@@ -294,8 +294,9 @@ def yunsou(request):
             print ('come to yunsou ajax...')
             print (request.POST['searchTarget'])
             target = request.POST['searchTarget']
-
-    return HttpResponse('<h1>Page was found</h1>')
+            # use yunsou to search searchTarget
+            htmlcode = searchall(target)
+    return HttpResponse(htmlcode)
 
             # use yunsou to search searchTarget
             # ddifExist = searchall(target)['destin']

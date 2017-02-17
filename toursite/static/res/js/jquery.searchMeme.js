@@ -97,7 +97,10 @@
                         data: {searchTarget:usercontent},
                         dataType: 'html',
                         success: function (result) {
-                            alert('try yunsou success');
+                            // alert('try yunsou success');
+                            console.log("ready to replace");
+                            $("nav_search").html(result);
+                            console.log("replace done");
                             console.log(result);
                         },
                         error: function (xhr, status, error) {
