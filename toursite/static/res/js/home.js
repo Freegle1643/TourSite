@@ -1,21 +1,18 @@
 function selectfeaturedr() {
-    document.getElementById("focusr-be-black").style.display="block";
+    document.getElementById("focusr-be-black").style.display="inline-block";
     document.getElementById("focusr-select-look").style.display="inline-block";
-    document.getElementById("focusr-select-collect").style.display="inline-block";
     document.getElementById("home-featuredr-text").style.display="none";
 }
 
 function unselectfeaturedr() {
     document.getElementById("focusr-be-black").style.display="none";
     document.getElementById("focusr-select-look").style.display="none";
-    document.getElementById("focusr-select-collect").style.display="none";
     document.getElementById("home-featuredr-text").style.display="block";
 }
 
 function selectfeaturedl() {
-    document.getElementById("focusl-be-black").style.display="block";
+    document.getElementById("focusl-be-black").style.display="inline-block";
     document.getElementById("focusl-select-look").style.display="inline-block";
-    document.getElementById("focusl-select-collect").style.display="inline-block";
     document.getElementById("home-featuredl-text").style.display="none";
     
 }
@@ -23,7 +20,6 @@ function selectfeaturedl() {
 function unselectfeaturedl() {
     document.getElementById("focusl-be-black").style.display="none";
     document.getElementById("focusl-select-look").style.display="none";
-    document.getElementById("focusl-select-collect").style.display="none";
     document.getElementById("home-featuredl-text").style.display="block";
 }
 
@@ -78,7 +74,6 @@ function blogRecommendAjax()
 
 $(function() {
 	//游记滑动
-    $('.slide-tbtn:eq(0)').css("background","url(res/icons/radio_selected.png)");
     var $container=$('#slide-wrapper');
     var $img_1=$('#slide-img-1')
     var $img_2=$('#slide-img-2')

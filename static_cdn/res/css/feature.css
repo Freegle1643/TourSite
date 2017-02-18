@@ -1,0 +1,104 @@
+.section-head{
+    height: 100%;
+    width: 100%;
+    background: url(../images/south.jpg) no-repeat;
+    line-height: 80%;
+    text-align: center;
+}
+.section-head h1{
+    color: white;
+    padding-top: 8%;
+    font-size: 80px;
+}
+.section-head p{
+    color: white;
+    margin: 0px auto;
+    width: 42%;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+.section-page-1{
+    position: relative;
+    background: url(../images/wuzhen.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+}
+.section-page-2{
+    position: relative;
+    background: url(../images/trip_02.jpg) no-repeat;
+    background-size: cover;
+
+}
+.section-page-3{
+    position: relative;
+    background: url(../images/trip_03.jpg) no-repeat;
+    background-size: cover;
+
+}
+.section-page-4{
+    position: relative;
+    background: url(../images/trip_06.jpg) no-repeat;
+    background-size: cover;
+
+}
+.section-content{
+    margin-top: 8%;
+    width: 90%;
+    height: 50%;
+    text-align: center;
+    margin-left: 5%;
+    display: table;
+}
+.section-content p{
+    /*margin: 0;*/
+}
+.section-preview{
+    text-align: left;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    display: table-cell;
+    padding: 60px 130px 60px 130px;
+    font-size: 14px;
+    line-height: 1.63em;
+    vertical-align: middle;
+    color: white;
+}
+.section-quote{
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    display: table-cell;
+    padding: 60px 130px 60px 130px;
+    font-size: 26px;
+    line-height: 1.63em;
+    vertical-align: middle;
+    color: white;
+    border-left: 1px solid #DFDFDF;
+}
+.quotation-left{
+    display: block;
+    text-align: left;
+    font-size: 50px;
+}
+.quotation-right{
+    display: block;
+    text-align: right;
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+div.be-black {
+    top: 800;
+    text-align: center;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+}
+
+div.back-to-home {
+    position: absolute;
+    top: 20px;
+}

@@ -1,16 +1,17 @@
 .container{
-	height: 320px;
+	width: 100%;
+	height: 540px;
 }
 
-.grid {
+.grid,.gridN {
 	overflow: hidden;
 	margin: 0;
+	padding-bottom: 140px;
 	width: 100%;
 	list-style: none;
 	text-align: center;
 	float: left;
 }
-
 .con-trip,.con-note{
 	width: 100%;
 	text-align:center;
@@ -22,29 +23,32 @@
 }
 
 /* Common style */
-.grid figure {
+.grid figure,.gridN figure {
 	position: relative;
 	z-index: 1;
 	display: inline-block;
 	overflow: hidden;
-	margin: 10px;
-	width: 26%;
-	height: 240px;
+	margin: 5px;
+	width: 25%;
+	height: 218px;
 	background: #3085a3;
 	text-align: center;
 	cursor: pointer;
 }
-
-.grid figure img {
+.gridN figure {
+	width:23%;
+	height: 200px;
+}
+.grid figure img,.gridN figure img {
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 240px;
+	height: 218px;
 	min-height: 100%;
 	opacity: 0.8;
 }
 
-.grid figure figcaption {
+.grid figure figcaption,.gridN figure figcaption {
 	padding: 2em;
 	color: #fff;
 	text-transform: uppercase;
@@ -54,12 +58,16 @@
 }
 
 .grid figure figcaption::before,
-.grid figure figcaption::after {
+.grid figure figcaption::after,
+.gridN figure figcaption::before,
+.gridN figure figcaption::after {
 	pointer-events: none;
 }
 
 .grid figure figcaption,
-.grid figure a {
+.grid figure a,
+.gridN figure figcaption,
+.gridN figure a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -67,7 +75,7 @@
 	height: 100%;
 }
 
-.grid figure a {
+.grid figure a,.gridN figure a {
 	z-index: 1000;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -75,27 +83,30 @@
 	opacity: 0;
 }
 
-.grid figure h2 {
+.grid figure h2,.gridN figure h2 {
 	word-spacing: -0.15em;	
 	font-weight: 300;
 }
 
-.grid figure h2 span {
+.grid figure h2 span,.gridN figure h2 span {
 	font-weight: 800;
 }
 
 .grid figure h2,
-.grid figure p {
+.grid figure p,
+.gridN figure h2,
+.gridN figure p {
 	margin: 0;
 }
 
-.grid figure p {
+.grid figure p,
+.gridN figure p {
 	letter-spacing: 1px;
 	font-size: 68.5%;
 }
 
 /*---------------*/
-/***** trip *****/
+/***** note*****/
 /*---------------*/
 
 figure.effect-trip figcaption {
@@ -202,10 +213,10 @@ figure.effect-trip:hover figcaption > span:nth-child(2) {
 }
 
 /*---------------*/
-/***** note *****/
+/***** trip *****/
 /*---------------*/
 
-figure.effect-note {
+figure.effect-note:hover {
 	background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
 	background: linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);
 }
@@ -234,7 +245,7 @@ figure.effect-note figcaption::before {
 }
 
 figure.effect-note h2 {
-	margin: 15% 0 10px 0;
+	margin: 12% 0 10px 0;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,100%,0);

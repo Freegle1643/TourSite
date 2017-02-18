@@ -300,7 +300,8 @@ def searchall(query):
             jjresult = searchallresult['journal']
     else:
         jjresult = 'No Result'
-    htmlcode = '<div class="isearch"><input type="text" id="search"/><div id="id-submenu-search" class="submenu-search" style="display: none"><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
+    # htmlcode = '<div class="isearch"><input type="text" id="search"/><div id="id-submenu-search" class="submenu-search" style="display: none"><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
+    htmlcode = '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
     htmlcode = htmlcode + ddresult + '</span></a></div></div><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">行程</p></a>'
     if ttresult == 'Service error' or ttresult == 'No Result':
         htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + ttresult + '</span></a></div>'
@@ -313,7 +314,8 @@ def searchall(query):
     else:
         for j in jjresult:
             htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal3"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
-    htmlcode = htmlcode + '</div></div></div>'
+    # htmlcode = htmlcode + '</div></div></div>'
+    htmlcode = htmlcode + '</div></div>'
     return htmlcode
 
 '''

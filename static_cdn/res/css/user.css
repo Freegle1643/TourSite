@@ -1,7 +1,7 @@
 ﻿
 /*body*/
 div.user {
-    width: 70%;
+    width: 100%;
     background: white;
     margin: 0px auto 0px auto;
     padding-top: 70px;
@@ -13,14 +13,19 @@ div.user-map {
     background: white;
 }
 /*游记*/
+div.user-follows {
+    margin:0 auto;
+    width: 76%;
+    /*height: 350px;*/
+}
 div.user-myblogs {
     box-sizing: border-box;
     border: 1px solid #DFDFDF;
     border-bottom: none;
-    width: 70%;
-    float: left;
+    width: 66%;
+    float: right;
+    margin-bottom:60px;
     background: white;
-    margin: 10px auto 10px auto;
     /*border-bottom: 1px solid #DFDFDF;*/
 }
 div.user-title {
@@ -35,31 +40,32 @@ div.user-myblogs-content {
     box-sizing: border-box;
     border-bottom: 1px solid #DFDFDF;
     width: 100%;
-    height: 80px;
+    height: 120px;
     background: white;
 }
-div.user-follows-done-l {
-    padding-bottom: 10px;
-    float: left;
+div.user-follows-done-r {
+    float:right;
     text-align: center;
-    width: 20%;
-    height: 45px;
+    width: 30%;
+    height: 120px;
     background: white;
 }
-p.p-user-follows-number-l {
-    font-size: 20px;
-    margin: 6px 0px;
-    color: #262626;
-    font-weight: lighter;
+.p-user-follows-img {
+    padding:5px 5px 5px 0;
+    margin:0 auto;
+    height: 120px;
+    width:100%;
+    overflow: hidden;
 }
 div.user-myblogs-content-scan {
+    float: left;
     border-left: 1px solid #DFDFDF;
     overflow: hidden; /*自动隐藏文字*/
     text-overflow: ellipsis;/*文字隐藏后添加省略号*/
     white-space: nowrap;/*强制不换行*/
     width: 60%;/*不允许出现半汉字截断*/
     padding: 18px;
-    height: 45px;
+    height: 120px;
     background: white;
 }
 div.user-myblogs-content-brief {
@@ -73,16 +79,11 @@ div.user-myblogs-content-brief {
     width: 100%;/*不允许出现半汉字截断*/
 }
 /*个人简介*/
-div.user-follows {
-    float: right;
-    width: 100%;
-    height: 350px;
-}
 div.user-information {
     box-sizing: border-box;
-    width: 30%;
-    margin: 10px 0px 10px 0px;
-    float: right;
+    width: 34%;
+    height: 280px;
+    float: left;
     background: white;
     border: 1px solid #DFDFDF;
 }
@@ -147,7 +148,7 @@ div.user-information-block {
     padding:2px 20px 2px 20px;
     background: white;
     float: left;
-    width: 90%;
+    width: 100%;
     margin-left: 5%;
 }
 p.p-user-namesty-briefidtion {
@@ -161,7 +162,7 @@ p.p-user-namesty-briefidtion {
 }
 p.p-user-namesty-briefidtion-s{
     height: 22px;
-    margin: 0px;
+    margin: 0 12% 0 0;
     padding: 0;
     font-size: 16px;
     line-height: 18px;
@@ -271,16 +272,14 @@ div.image-editor {
       }
 
       table.user-data {
-          width: 60%;
-          font-size: 14px;
-          color: #262626;
-          margin-top: 15px;
-          margin-bottom: 15px;
-          border: 1px solid #DFDFDF;
-          border-bottom: none;
+        box-sizing: border-box;
+        width: 90%;
+        float: left;
+        background: white;
+        border: 1px solid #DFDFDF;
       }
 
       table.user-data td {
-         padding: 12px;
+         padding: 2px;
          border-bottom: 1px solid #DFDFDF;
       }

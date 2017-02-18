@@ -63,7 +63,8 @@ subMenu.style.display = "none";
 
                 <div id="id-submenu-search" class="submenu-search" style="display: none">
 
-                     <div class="submenu-search-title">
+                  <div id="#search-result-content">
+                     <!-- <div class="submenu-search-title">
                          <a href="../triplist"><p class="search-subTitle">地点</p></a>
                           <div id="id-submenu-search-user-1" class="submenuList">
                           <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
@@ -92,8 +93,8 @@ subMenu.style.display = "none";
                      <div id="id-submenu-search-user-7" class="submenuList" >
                           <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
                      </div>
-                     </div>
-
+                     </div> -->
+                  </div>
                 </div>
 
             </div>
@@ -162,7 +163,7 @@ subMenu.style.display = "none";
     </div>
 </div>
 
-<!--精选推荐大图-->
+<!--推荐图-->
         <div id="slide-wrapper">
         <div class="home-recommend-image" id="slide-img-1" style="left:0px" >
                 <div id="slide-txt-1" class="home-recommend-image-content" >
@@ -205,8 +206,25 @@ subMenu.style.display = "none";
             </div>
         </div>
 
-        <!--行程 这里有三篇游记需要链接-->
-        <div class="container">
+        <!--欢迎来到TOUR-->
+        <section class="welcome-content">
+            <div class="containerW">
+                <div class="rowW">
+                    <div class="welcome-text">
+                        <h3>Welcome to TOUR</h3>
+                        <div class="line1"></div>
+                        <p><span class="yahei"> 我们路过高山，路过湖泊，路过晚风，路过星辰，只为跨过纷扰喧嚣，遇见你。
+                        途尔，致力于小众行程的发掘与推荐，为你提供有趣多彩却鲜为人知的去处。助你可以纵享独特风景，沉醉山水阁楼
+                        <br>途尔，陪伴你度过一个个精彩而又难忘的旅行。</span>
+                        <br>
+                        TOUR,&nbspjust the way you are. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--老行程 这里有三篇游记需要链接-->
+        <!-- <div class="container">
         <div class="con-note"><h2>专属行程</h2><i class="strp"></i></div>
         <div class="grid">
             <figure class="effect-note">
@@ -234,8 +252,105 @@ subMenu.style.display = "none";
                 </figcaption>
             </figure>
         </div>
-    </div>
+    </div> -->
+
+    <!-- 新行程 -->
+
+    <div class="space">
     <div class="container">
+        <h3>精选小众行程</h3>
+        <div class="line2"></div>
+
+        <div class="grid">
+            <figure class="effect-note">
+              <img src="{% static "res/images/wuxi2.jpg" %}"/>
+                <figcaption>
+                  <h2>漫步无锡<span>赠君江南一枝春</span></h2>
+                  <p>水宽山远烟岚迥，柳岸萦回在碧流。清昼不风凫雁少，却疑初梦镜湖秋。</p>
+                  <a  href="../trip1" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+              <img src="{% static "res/images/nanjing2.jpg" %}"/>
+                <figcaption>
+                  <h2>石头城记<span>金陵自古帝王州</span></h2>
+                  <p>把江山好处付公来，金陵帝王州。想今年燕子，依然认得，王谢风流。只用平时尊俎，弹压万貔貅，依旧钓天梦，玉殿东头。</p>
+                  <a href="../trip2" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+              <img src="{% static "res/images/xian2.jpg" %}"/>
+                <figcaption>
+                  <h2>梦回长安<span>春风得意马蹄疾</span></h2>
+                  <p>长安大道连狭斜，青牛白马七香车。玉辇纵横过主第，金鞭络绎向侯家。</p>
+                  <a href="../trip3" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+                <img src="{% static "res/images/chengdu.jpg" %}"/>
+                <figcaption>
+                    <h2>难忘天府<span>带不走的是成都</span></h2>
+                    <p>忘却成都数十载，因君未免思量。晓看红湿处，花重锦官城</p>
+                    <a href="../trip6" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+                <img src="{% static "res/images/sh02 - Copy.jpg" %}"/>
+                <figcaption>
+                    <h2>文艺魔都<span>黄浦浪花千尘雪</span></h2>
+                    <p>上海是一朵深红如血的玫瑰，一切的功名与夸耀，都不及她骨子里的底蕴绚丽</p>
+                    <a href="../trip4" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="effect-note">
+                <img src="{% static "res/images/suzhou-trip-home.jpg" %}"/>
+                <figcaption>
+                    <h2>畅行苏州<span>醉在吴侬软语中</span></h2>
+                    <p>是笔尖滴落的墨汁，在宣纸上一点点晕开，渲成一幅精致淡雅的水墨画</p>
+                    <a href="../trip5" target="_blank">View more</a>
+                </figcaption>
+            </figure>
+        </div>
+        </div>
+    </div>
+
+
+    <!--专题-->
+    <section class="theme-content" id="theme">
+        <div class="containerT">
+            <div class="rowT">
+                <div class="fade-text">
+                    <h3>TOUR专题</h3>
+                    <div class="line1"></div>
+                    <p><span class="yahei">你在南方的艳阳里大雪纷飞，我在北方的寒夜里四季如春。</span><br>
+                    Meeting you was fate,and falling in love with you was out of my control</p>
+                </div>
+            </div>
+            <div class="home-featured">
+                    <div class="home-featured-left">
+                        <div id="home-featured-img-content-left" class="home-featured-img-content-left" onmouseover="selectfeaturedl()" onmouseout="unselectfeaturedl()">
+                            <p id="home-featuredl-text" style="display: block;">我在南方</p>
+                            <span id="home-focus" class="home-focus">
+                                <a id="focusl-be-black" class="focus-be-black" style="display: none;"></a>
+                                <a id="focusl-select-look" class="focus-select" href="../feature_south" style="display: none;">立即阅读</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="home-featured-right">
+                        <div id="home-featured-img-content-right" class="home-featured-img-content-right" onmouseover="selectfeaturedr()" onmouseout="unselectfeaturedr()">
+                            <p id="home-featuredr-text" style="display: block;">我在北方</p>
+                           <span id="home-focus" class="home-focus">
+                                <a id="focusr-be-black" class="focus-be-black" style="display: none;"></a>
+                                <a id="focusr-select-look" class="focus-select" href="../feature_north" style="display:none">立即阅读</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- 旧游记 -->
+    <!-- <div class="container">
          <div class="con-trip"><h2>精彩游记</h2><i class="strp"></i></div>
          <div class="grid">
              <figure class="effect-trip">
@@ -269,7 +384,96 @@ subMenu.style.display = "none";
                  </figcaption>
              </figure>
          </div>
+     </div> -->
+
+     <!-- 新游记 -->
+     <div class="containerN">
+         <h3>精选游记</h3>
+         <div class="line1"></div>
+         <div class="gridN">
+             <figure class="effect-trip">
+               <img src="{% static "res/images/nanjing3.jpg" %}"/>
+               <figcaption>
+                   <h2>金陵四人行<span>印象南京</span></h2>
+                   <span class="ico-zan"></span>
+                   <span class="ico-like"></span>
+                   <p>节假日、文艺、四人行.</p>
+                   <a href="../journal3" target="_blank">View more</a>
+               </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/lijiang2.jpg" %}"/>
+               <figcaption>
+                   <h2>丽江<span>不止是风花雪月</span></h2>
+                   <span class="ico-zan"></span>
+                   <span class="ico-like"></span>
+                   <p>云南 风景 清新</p>
+                   <a href="../journal2" target="_blank">View more</a>
+               </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/xihu.jpg" %}"/>
+               <figcaption>
+                   <h2>人间天堂<span>西湖漫游记</span></h2>
+                   <span class="ico-zan"></span>
+                   <span class="ico-like"></span>
+                   <p>度假 慢生活 湖光山色 周边游</p>
+                   <a href="../journal1" target="_blank">View more</a>
+               </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/km.jpg" %}"/>
+               <figcaption>
+                   <h2>一生有你<span>昆明漫游记</span></h2>
+                   <span class="ico-zan"></span>
+                   <span class="ico-like"></span>
+                   <p>昆明 闲适 蓝天 美景</p>
+                   <a href="../journal22" target="_blank">View more</a>
+               </figcaption>
+             </figure>
+             <figure class="effect-trip">
+                 <img src="{% static "res/images/note_05.jpg" %}"/>
+                 <figcaption>
+                     <h2>DARK <span>paradise</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>If you love me hardcore,then don't go away.Never let me go,just stay.</p>
+                     <a href="#" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/note_06.jpg" %}"/>
+                 <figcaption>
+                     <h2>DARK <span>paradise</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>If you love me hardcore,then don't go away.Never let me go,just stay.</p>
+                     <a href="#" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/note_07.jpg" %}"/>
+                 <figcaption>
+                     <h2>Dark <span>Paradise</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>If you love me hardcore,then don't go away.Never let me go,just stay.</p>
+                     <a href="#" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+             <figure class="effect-trip">
+               <img src="{% static "res/images/note_08.jpg" %}"/>
+                 <figcaption>
+                     <h2>Dark <span>Paradise</span></h2>
+                     <span class="ico-zan"></span>
+                     <span class="ico-like"></span>
+                     <p>If you love me hardcore,then don't go away.Never let me go,just stay.</p>
+                     <a href="#" target="_blank">View more</a>
+                 </figcaption>
+             </figure>
+         </div>
      </div>
+
 
         <!--广告-->
 
@@ -277,7 +481,7 @@ subMenu.style.display = "none";
         <div class="home-advertisement" >
             <h5>广告</h5>
             <a href="http://www.avis.cn/" target="_blank">
-            <img src="{% static "res/images/11.png" %}" width="800px"/>
+            <img src="{% static "res/images/advertisement.png" %}" width="800px"/>
           </a>
         </div>
 

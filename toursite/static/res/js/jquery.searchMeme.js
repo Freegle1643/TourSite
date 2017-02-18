@@ -99,7 +99,9 @@
                         success: function (result) {
                             // alert('try yunsou success');
                             console.log("ready to replace");
-                            $("nav_search").html(result);
+                            $('#search-result-content').html(result);
+                            t = $('#search-result-content').length;
+                            console.log(t);
                             console.log("replace done");
                             console.log(result);
                         },
