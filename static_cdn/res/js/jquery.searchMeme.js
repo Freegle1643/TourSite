@@ -98,12 +98,14 @@
                         dataType: 'html',
                         success: function (result) {
                             // alert('try yunsou success');
-                            console.log("ready to replace");
-                            $('#search-result-content').html(result);
-                            t = $('#search-result-content').length;
-                            console.log(t);
-                            console.log("replace done");
-                            console.log(result);
+                            // console.log("ready to replace");
+                            var changecontent = document.getElementById('#search-result-content');
+                            changecontent.innerHTML = result;
+                            // $('#search-result-content').html(result);
+                            // t = $('#search-result-content').length;
+                            // console.log(t);
+                            // console.log("replace done");
+                            // console.log(result);
                         },
                         error: function (xhr, status, error) {
                             alert('!Error:' + error.message);
