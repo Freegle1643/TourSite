@@ -301,17 +301,16 @@ def searchall(query):
     else:
         jjresult = 'No Result'
     # htmlcode = '<div class="isearch"><input type="text" id="search"/><div id="id-submenu-search" class="submenu-search" style="display: none"><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
-    htmlcode = '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
-    htmlcode = htmlcode + ddresult + '</span></a></div></div><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">行程</p></a>'
-    if ttresult == 'Service error' or ttresult == 'No Result':
-        htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + ttresult + '</span></a></div>'
-    else:
+    htmlcode = ''
+    if ddresult != 'Service error' and ddresult != 'No Result':
+        htmlcode = '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList">'
+        htmlcode = htmlcode + '<a href="../destination2"><span class="submenu-search-h" >' + ddresult + '</span></a></div></div>'
+    if ttresult != 'Service error' and ttresult != 'No Result':
+        htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">行程</p></a>'
         for i in ttresult:
-            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + i['tname'] + '</span></a></div>'
-    htmlcode = htmlcode + '</div><div class="submenu-search-title"><a href="../forum"><p class="search-subTitle">游记</p></a>'
-    if jjresult == 'Service error' or jjresult == 'No Result':
-        htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + jjresult + '</span></a></div>'
-    else:
+            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + i['tname'] + '</span></a></div></div>'
+    if jjresult != 'Service error' and jjresult != 'No Result':
+        htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../forum"><p class="search-subTitle">游记</p></a>'
         for j in jjresult:
             htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal3"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
     # htmlcode = htmlcode + '</div></div></div>'

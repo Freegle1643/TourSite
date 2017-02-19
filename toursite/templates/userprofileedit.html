@@ -46,8 +46,8 @@
                         <input type="text" id="search"/>
 
                     <div id="id-submenu-search" class="submenu-search" style="display: none">
-
-                         <div class="submenu-search-title">
+                      <div id="#search-result-content">
+                         <!-- <div class="submenu-search-title">
                              <a href="../triplist"><p class="search-subTitle">地点</p></a>
                               <div id="id-submenu-search-user-1" class="submenuList">
                               <a href="../destination2"><span class="submenu-search-h" >南京</span></a>
@@ -76,8 +76,8 @@
                          <div id="id-submenu-search-user-7" class="submenuList" >
                               <a href=""><span class="submenu-search-h" >多少楼台烟雨中</span></a>
                          </div>
-                         </div>
-
+                         </div> -->
+                       </div>
                     </div>
 
                 </div>
@@ -120,11 +120,17 @@
         <!-- <div class="user-map" id="id-user-map"></div> -->
         <div class="user-block">
           <div class="user-follows">
-            <div class="user-block-left">
+            <div class="user-block-left"></div>
+            {% for item in currentuser %}
+            <div class="user-information">
+                <div id="id-user-information-block" class="user-information-block">
+                <a style="width:100%; text-align:center;" class="fogPwdlink" href="../personal/">返回个人中心 <— {{item.user.username}}</a>
+                <a style="width:100%; text-align:center;" class="a-select-01" href="../profile/">保存</a>
+
                 <form>
                 <table class="user-data">
-                  {% for item in currentuser %}
-                    <tr>
+
+                    <!-- <tr>
                         <td style="padding: 0px 15px">
                             <a class="fogPwdlink" href="user.html">返回个人中心 <— {{item.user.username}}</a>
                         </td>
@@ -132,7 +138,7 @@
                         <td style="padding-right: 15px;;text-align: right">
                             <a class="a-select-01" style="margin: 0;" href="../personal">保存</a>
                         </td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <td>
@@ -196,10 +202,12 @@
                             <input type="text" placeholder="{{item.utag}}"/>
                         </td>
                     </tr>
-                    {% endfor %}
+
                 </table>
                 </form>
+              </div>
             </div>
+            {% endfor %}
             <div class="user-myblogs">
                 <div class="user-title">
                     <a style="margin-left: 5px;" class="title" href="{% static "res/icons/more.png" %}">我的游记</a>
