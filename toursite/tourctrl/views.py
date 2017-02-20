@@ -301,7 +301,7 @@ def feature_south(request):
             # print request.user.id
             return render(request, 'feature_south.html', {'currentuser': userobject})
     else:
-        return render(request, 'feature_south.html', {})
+        return render(request, 'feature-south.html', {})
 
 def feature_north(request):
     if request.user.is_authenticated():
@@ -312,7 +312,7 @@ def feature_north(request):
             # print request.user.id
             return render(request, 'feature_north.html', {'currentuser': userobject})
     else:
-        return render(request, 'feature_north.html', {})
+        return render(request, 'feature-north.html', {})
 
 def yunsou(request):
     if request.is_ajax():

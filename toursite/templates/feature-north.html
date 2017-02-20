@@ -4,13 +4,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title>途尔南方精选</title>
+  <title>途尔北方精选</title>
   <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
-  <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}" >
-  <LINK rel="stylesheet" href="{% static "res/css/feature.css" %}" >
-  <LINK rel="stylesheet" href="{% static "res/css/jquery.fullpage.css" %}" >
-  <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
-  <script type="text/javascript" src="{% static "res/js/jquery.fullpage.js" %}"></script>
+    <LINK rel="stylesheet" href="{% static "res/css/mystyle.css" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/feature-north.css" %}" >
+    <LINK rel="stylesheet" href="{% static "res/css/jquery.fullpage.css" %}" >
+    <script type="text/javascript" src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/jquery.fullpage.js" %}"></script>
 </head>
 
 <body style="position: relative;">
@@ -19,13 +19,13 @@
         <div class="section section-head active" id="section1">
             <div id="id-feature-head" class="be-black" style="top: 0px;display: none;">
                 <div style="margin-top: 15%">
-            <h1>我在南方</h1>
+            <h1>我在北方</h1>
             <p>
-                在这里，敬请欣赏TOUR为您精心整理的南方。<br/>
-                让我们一起领略南方的好去处。<br/>
+                在这里，敬请欣赏TOUR为您精心整理的北方。<br/>
+                让我们一起领略北方的好去处。<br/>
                 途尔，一路有你。
             </p>
-               <div style="width:400px;height:100px;margin: 0px auto;"> <div class="back-to-home"><a href="home.html"><img src="{% static "res/images/logo1.png" %}"/></a></div></div>
+               <div style="width:400px;height:100px;margin: 0px auto;"> <div class="back-to-home"><a href="../home"><img src="{% static "res/images/logo1.png" %}"/></a></div></div>
 
                 </div>
             </div>
@@ -116,7 +116,7 @@
             $('#fullpage').fullpage({
                 srcollingSpeed: 500,
                 'navigation': true,
-				'navigationPosition': 'right',
+                'navigationPosition': 'right',
                 'afterLoad': function(link,index) {
                     switch(index){
                         case 1:
