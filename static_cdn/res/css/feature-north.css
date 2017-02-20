@@ -19,25 +19,25 @@
 }
 .section-page-1{
     position: relative;
-    background: url(../images/wuzhen.jpg) no-repeat;
+    background: url(../images/gugong.jpg) no-repeat;
     background-size: cover;
     color: white;
 }
 .section-page-2{
     position: relative;
-    background: url(../images/trip_02.jpg) no-repeat;
+    background: url(../images/hutong.jpg) no-repeat;
     background-size: cover;
 
 }
 .section-page-3{
     position: relative;
-    background: url(../images/trip_03.jpg) no-repeat;
+    background: url(../images/ruoergai.jpg) no-repeat;
     background-size: cover;
 
 }
 .section-page-4{
     position: relative;
-    background: url(../images/trip_06.jpg) no-repeat;
+    background: url(../images/takelamagan.jpg) no-repeat;
     background-size: cover;
 
 }

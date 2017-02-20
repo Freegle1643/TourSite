@@ -1,29 +1,25 @@
 function selectfeaturedr() {
-    document.getElementById("focusr-be-black").style.display="block";
+    document.getElementById("focusr-be-black").style.display="inline-block";
     document.getElementById("focusr-select-look").style.display="inline-block";
-    document.getElementById("focusr-select-collect").style.display="inline-block";
     document.getElementById("home-featuredr-text").style.display="none";
 }
 
 function unselectfeaturedr() {
     document.getElementById("focusr-be-black").style.display="none";
     document.getElementById("focusr-select-look").style.display="none";
-    document.getElementById("focusr-select-collect").style.display="none";
     document.getElementById("home-featuredr-text").style.display="block";
 }
 
 function selectfeaturedl() {
-    document.getElementById("focusl-be-black").style.display="block";
+    document.getElementById("focusl-be-black").style.display="inline-block";
     document.getElementById("focusl-select-look").style.display="inline-block";
-    document.getElementById("focusl-select-collect").style.display="inline-block";
     document.getElementById("home-featuredl-text").style.display="none";
-
+    
 }
 
 function unselectfeaturedl() {
     document.getElementById("focusl-be-black").style.display="none";
     document.getElementById("focusl-select-look").style.display="none";
-    document.getElementById("focusl-select-collect").style.display="none";
     document.getElementById("home-featuredl-text").style.display="block";
 }
 
@@ -48,37 +44,36 @@ function blogRecommendAjax()
 						var str=$(this).attr('id');
 						location.href="blogdetails.html?blogID="+data[str[14]-1].b_ID;
 					})
-
+					
 					var destID=data[i-1].b_ID;
-
+					
 					feedsSearch(i,userID,destID,5);
-
+					
 					$('#slide-collectbtn-'+i).click(function () {
 						var str=$(this).attr('id');
 						var dest=data[str[17]-1].b_ID;
 						if($(this).html()!="已收藏"){
-						$(this).html("已收藏");
+						$(this).html("已收藏");	
 						feedAjax(userID,dest,5);
 						addReadingList(data[str[17]-1].b_ID,data[str[17]-1].b_title,data[str[17]-1].b_abstract);
 						alert("收藏成功");
 						}
-						else{
+						else{	
 							$(this).html("加入收藏");
     						disfeedAjax(userID,dest,5);
     						alert("取消收藏成功");
 						}
 					})
-				}
+				}  
 		},
-		error:function(){
+		error:function(){		
 		}
-	});
+	});         
 }
 
 
 $(function() {
 	//游记滑动
-    $('.slide-tbtn:eq(0)').css("background","url(res/icons/radio_selected.png)");
     var $container=$('#slide-wrapper');
     var $img_1=$('#slide-img-1')
     var $img_2=$('#slide-img-2')
@@ -91,7 +86,7 @@ $(function() {
     var bool=false;
     var count=1;
     var timer;
-
+    
 
     $('#focusr-select-collect').click(function(){
         if($('#focusr-select-collect').html()=="加入关注")
@@ -99,7 +94,7 @@ $(function() {
         else
         	$('#focusr-select-collect').html("加入关注");
     })
-
+    
     $('.slide-tbtn:eq(2)').click(function(){
         if(count==2){
             myanimate($img_2,$txt_2,$img_3,$txt_3,-$(window).width(),1000)
@@ -140,7 +135,7 @@ $(function() {
         clearInterval(timer);
     }
 
-
+    
     function myanimate(img_1,txt_1,img_2,txt_2,offset,duration) {
         img_2.css("left",-offset);
         txt_2.css("left",-offset);
