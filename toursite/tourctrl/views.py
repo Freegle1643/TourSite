@@ -345,3 +345,26 @@ def yunsou(request):
             #     jjresult = searchall(target)['jouurnal']['jname']
 
         # return HttpResponse({'ddresult':ddresult},{'ttresult':ttresult},{'jjresult':jjresult})
+
+# try to do image upload
+def ImageUpload(request):
+
+        if request.POST == None:
+            return HttpResponse("error|uplode failure")
+        else:
+            # correct way to get object
+            print (request.FILES['wangEditorH5File'])
+            # correct way to get object's name
+            print(request.FILES['wangEditorH5File'].name)
+
+            filename = request.FILES['wangEditorH5File'].name
+            imgUrl = "http://localhost:8000" + '/' +filename
+            return HttpResponse(imgUrl)
+         # print(request.POST['files'])
+         # print(request.POST.files[0])
+
+         # myfile = request.files['myFileName']
+         # if myfile == None:
+         #     return HttpResponse('Server error!')
+         # else:
+         #      return HttpResponse('Success upload')

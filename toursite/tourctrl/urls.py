@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^yunsou/$',yunsou),
     url(r'^feature_south/$',feature_south),
     url(r'^feature_north/$',feature_north),
+    url(r'^editjournal/imageupload/$',ImageUpload)
 ]
