@@ -44,7 +44,7 @@ def home(request):
         if request.user.is_staff:
             return HttpResponseRedirect('../admin')
         else:
-            userobject = Touruser.objects.all().filter(user = request.user.id)
+            userobject = Touruser.objects.all().filter(user=request.user.id)
             # print request.user.id
             return render(request, 'home.html' , {'currentuser':userobject})
     else:
