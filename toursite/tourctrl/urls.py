@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 
 from .views import *
 
@@ -31,3 +32,10 @@ urlpatterns = [
     url(r'^feature_north/$',feature_north),
     url(r'^editjournal/imageupload/$',ImageUpload)
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]
