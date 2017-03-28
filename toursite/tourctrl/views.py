@@ -371,7 +371,8 @@ def ImageUpload(request):
             print ('img is')
             print(img)
 
-            name = filename
+            # image can go to media directory
+            name = '%s\/%s' % (MEDIA_ROOT, myfile.name)
             img.save(name)
 
             imgUrl = "http://localhost:8000/media/" + filename
