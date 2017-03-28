@@ -354,11 +354,14 @@ def ImageUpload(request):
         else:
             # correct way to get object
             print (request.FILES['wangEditorH5File'])
+            myfile = request.FILES['wangEditorH5File']
             # correct way to get object's name
             print(request.FILES['wangEditorH5File'].name)
 
+            # save the image and back url
+
             filename = request.FILES['wangEditorH5File'].name
-            imgUrl = "http://localhost:8000" + '/' +filename
+            imgUrl = "http://localhost:8000" + '/media/' +filename
             return HttpResponse(imgUrl)
          # print(request.POST['files'])
          # print(request.POST.files[0])
