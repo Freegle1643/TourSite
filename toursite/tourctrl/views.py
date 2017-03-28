@@ -11,12 +11,15 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseRedirect,HttpResponse,HttpResponseNotFound
 from django.template import RequestContext
 from django.db import transaction
+from PIL import Image, ImageFile
+
 
 import sys
 sys.path.append('../')
 reload(sys)
 sys.setdefaultencoding('utf8')
 from qcloudapi_sdk_python.demo import *
+from toursite.settings import *
 
 # Create your views here.
 # @login_required(login_url='/login/')
@@ -357,12 +360,23 @@ def ImageUpload(request):
             myfile = request.FILES['wangEditorH5File']
             # correct way to get object's name
             print(request.FILES['wangEditorH5File'].name)
+            filename = request.FILES['wangEditorH5File'].name
 
             # save the image and back url
+            parser = ImageFile.Parser()
+            for chunk in myfile.chunks():
+                parser.feed(chunk)
+            img = parser.close()
 
-            filename = request.FILES['wangEditorH5File'].name
-            imgUrl = "http://localhost:8000" + '/media/' +filename
+            print ('img is')
+            print(img)
+
+            name = filename
+            img.save(name)
+
+            imgUrl = "http://localhost:8000/media/" + filename
             return HttpResponse(imgUrl)
+
          # print(request.POST['files'])
          # print(request.POST.files[0])
 
