@@ -176,6 +176,18 @@
                 // 隐藏掉插入网络图片功能。该配置，只有在你正确配置了图片上传功能之后才可用。
                 editor.config.hideLinkImg = true;
 
+                // 自定义timeout事件
+                editor.config.uploadImgFns.ontimeout = function (xhr) {
+                // xhr 是 xmlHttpRequest 对象，IE8、9中不支持
+                alert('上传超时');
+                };
+
+                // 自定义error事件
+                editor.config.uploadImgFns.onerror = function (xhr) {
+                // xhr 是 xmlHttpRequest 对象，IE8、9中不支持
+                alert('上传错误');
+                };
+
                 editor.create();
 
                 $('#id-blogedit-submit').click(function () {
