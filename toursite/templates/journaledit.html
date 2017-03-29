@@ -162,12 +162,12 @@
 
     <!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
     <script type="text/javascript" src="{% static "dist/js/lib/jquery-1.10.2.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "dist/js/wangEditor.min.js" %}"></script>
-
-
+    <script type="text/javascript" src="{% static "dist/js/wangEditor.min.js" %}"></script><script type="text/javascript" src="{% static "dist/plupload/plupload.full.min.js" %}"></script><script type="text/javascript" src="{% static "dist/plupload/i18n/zh_CN.js" %}"></script><script type="text/javascript" src="{% static "dist/js/qiniu.js" %}"></script>
 
     <script type="text/javascript">
             $(function () {
+
+        //注释掉/*成功上传到本地media的代码
                 var editor = new wangEditor('div1');
 
         // 上传图片
@@ -190,7 +190,25 @@
                 alert('上传错误');
                 };
 
-                editor.create();
+        editor.create();*/
+
+        //尝试上传到七牛云
+
+        // 封装 console.log 函数function printLog(title, info) {window.console && console.log(title, info);}
+
+        // 初始化七牛上传function uploadInit() {// this 即 editor 对象var editor = this;// 触发选择文件的按钮的idvar btnId = editor.customUploadBtnId;// 触发选择文件的按钮的父容器的idvar containerId = editor.customUploadContainerId;
+
+        // 创建上传对象var uploader = Qiniu.uploader({runtimes: 'html5,flash,html4', //上传模式,依次退化browse_button: btnId, //上传选择的点选按钮，**必需**//uptoken_url: '/uptoken',//Ajax请求upToken的Url，**强烈建议设置**（服务端提供）uptoken : 'UcZT5hEtNBGWPnu3ncR_db_UT0POmY6hargmNKqm:sxQMc19k84TsO3mA5WS84fiP6sA=:eyJzY29wZSI6ImNsb3VkdG91ciIsImRlYWRsaW5lIjoxNDkwNzg0NjM0fQ==',//若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成// unique_names: true,// 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）// save_key: true,// 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理domain: 'http://oispa15fc.bkt.clouddn.com/',//bucket 域名，下载资源时用到，**必需**container: containerId, //上传区域DOM ID，默认是browser_button的父元素，max_file_size: '100mb', //最大文件体积限制flash_swf_url: "{% static "dist/js/plupload/Moxie.swf" %}", //引入flash,相对路径filters: {mime_types: [//只允许上传图片文件 （注意，extensions中，逗号后面不要加空格）{ title: "图片文件", extensions: "jpg,gif,png,bmp" }]},max_retries: 3, //上传失败最大重试次数dragdrop: true, //开启可拖曳上传drop_element: 'editor-container', //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传chunk_size: '4mb', //分块上传时，每片的体积auto_start: true, //选择文件后自动上传，若关闭需要自己绑定事件触发上传init: {'FilesAdded': function(up, files) {plupload.each(files, function(file) {// 文件添加进队列后,处理相关的事情printLog('on FilesAdded');});},'BeforeUpload': function(up, file) {// 每个文件上传前,处理相关的事情printLog('on BeforeUpload');},'UploadProgress': function(up, file) {// 显示进度条editor.showUploadProgress(file.percent);},'FileUploaded': function(up, file, info) {// 每个文件上传成功后,处理相关的事情// 其中 info 是文件上传成功后，服务端返回的json，形式如// {// "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",// "key": "gogopher.jpg"// }printLog(info);// 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
+
+        var domain = up.getOption('domain');var res = $.parseJSON(info);var sourceLink = domain + res.key; //获取上传成功后的文件的Url
+
+        printLog(sourceLink);
+
+        // 插入图片到editoreditor.command(null, 'insertHtml', '<img src="' + sourceLink + '" style="max-width:100%;"/>')},'Error': function(up, err, errTip) {//上传出错时,处理相关的事情printLog('on Error');},'UploadComplete': function() {//队列文件处理完毕后,处理相关的事情printLog('on UploadComplete');
+
+        // 隐藏进度条editor.hideUploadProgress();}// Key 函数如果有需要自行配置，无特殊需要请注释//,// 'Key': function(up, file) {// // 若想在前端对每个文件的key进行个性化处理，可以配置该函数// // 该配置必须要在 unique_names: false , save_key: false 时才生效// var key = "";// // do something with key here// return key// }}});// domain 为七牛空间（bucket)对应的域名，选择某个空间后，可通过"空间设置->基本设置->域名设置"查看获取// uploader 为一个plupload对象，继承了所有plupload的方法，参考http://plupload.com/docs}
+
+        // 生成编辑器var editor = new wangEditor('div1');editor.config.customUpload = true; // 设置自定义上传的开关editor.config.customUploadInit = uploadInit; // 配置自定义上传初始化事件，uploadInit方法在上面定义了editor.create();
 
                 $('#id-blogedit-submit').click(function () {
 
