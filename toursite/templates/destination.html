@@ -187,24 +187,43 @@
                 <div id="JS-city-list"></div>
                 <div id="JS-journals" class="city-journals">
                     <div class="items" data-more-url="/journals/domestic">
+
+                    <!--解决一个地点多个行程的问题 把原来的注释掉-->
+
                         {% for item in tripresult %}
                         <!--did.tid 动态加载 tid -->
-                        <a href="../trip{{ item.tid }}" class="item journal">
+                        <!--<a href="../trip{{ item.tid }}" class="item journal">
                             <img class="journal-img" src={{ item.tcover|safe|escape }}  width="600">
                         {% endfor %}
+
                             <div class="journal-wrap">
-                                <div class="txt-area">
+                                <div class="txt-area">-->
                                     {% for item in destresult %}
                                     <!--dname-->
-                                    <h2 class="title">{{ item.dname }}</h2>
+                                    <!--<h2 class="title">{{ item.dname }}</h2>-->
                                     {% endfor %}
                                     <!--did.tname-->
                                     {% for item in tripresult %}
-                                    <h3 class="sub-title">{{ item.tname }}</h3>
+                                    <!--<h3 class="sub-title">{{ item.tname }}</h3>
                                     {% endfor %}
                                 </div>
                             </div>
+                        </a>-->
+
+                     <!--new 4.16-->
+                      {% for item in tripresult %}
+                        <!--did.tid 动态加载 tid -->
+                        <a href="../trip{{ item.tid }}" class="item journal">
+                            <img class="journal-img" src={{ item.tcover|safe|escape }}  width="600">
+
+                            <div class="journal-wrap">
+                                <div class="txt-area">
+                                    <h3 class="sub-title">{{ item.tname }}</h3>
+                                </div>
+                            </div>
                         </a>
+                      {% endfor %}
+
                     </div>
                     <div id="page"></div>
                 </div>
