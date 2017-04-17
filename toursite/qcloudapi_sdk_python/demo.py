@@ -303,16 +303,19 @@ def searchall(query):
     # htmlcode = '<div class="isearch"><input type="text" id="search"/><div id="id-submenu-search" class="submenu-search" style="display: none"><div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList"><a href="../destination2"><span class="submenu-search-h" >'
     htmlcode = ''
     if ddresult != 'Service error' and ddresult != 'No Result':
-        htmlcode = '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList">'
-        htmlcode = htmlcode + '<a href="../destination2"><span class="submenu-search-h" >' + ddresult + '</span></a></div></div>'
+        htmlcode = '<div class="submenu-search-title"><a href="../destination"><p class="search-subTitle">地点</p></a><div id="id-submenu-search-user-1" class="submenuList">'
+        htmlcode = htmlcode + '<a href="../destination' + searchallresult['destin'][0]['id']
+        htmlcode += '"><span class="submenu-search-h" >' + ddresult + '</span></a></div></div>'
     if ttresult != 'Service error' and ttresult != 'No Result':
         htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">行程</p></a>'
         for i in ttresult:
-            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip2"><span class="submenu-search-h" >' + i['tname'] + '</span></a></div></div>'
+            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip' + searchallresult['trip'][0]['id']
+            htmlcode += '"><span class="submenu-search-h" >' + i['tname'] + '</span></a></div></div>'
     if jjresult != 'Service error' and jjresult != 'No Result':
         htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../forum"><p class="search-subTitle">游记</p></a>'
         for j in jjresult:
-            htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal3"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
+            htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal' + searchallresult['journal'][0]['id']
+            '"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
     # htmlcode = htmlcode + '</div></div></div>'
     htmlcode = htmlcode + '</div></div>'
     return htmlcode
