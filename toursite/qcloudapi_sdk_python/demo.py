@@ -87,6 +87,7 @@ params = {
 def upload1(did, dname, dinfo):
     paramsupload1['appId'] = appId1
     paramsupload1['contents.0.dname'] = dname
+    paramsupload1['contents.0.forprint'] = 'c02b88ca97f3dd17b572e92d7ca07955'
     paramsupload1['contents.0.dinfo'] = dinfo
     paramsupload1['contents.0.id'] = did
     service = QcloudApi(module, config)
@@ -108,6 +109,7 @@ def upload1(did, dname, dinfo):
 def upload2(tid, tdays, tname, tdescrip, tpeople, tdest):
     paramsupload2['appId'] = appId2
     paramsupload2['contents.0.tname'] = tname
+    paramsupload2['contents.0.forprint'] = 'c02b88ca97f3dd17b572e92d7ca07955'
     paramsupload2['contents.0.tdescrip'] = tdescrip
     paramsupload2['contents.0.tpeople'] = tpeople
     paramsupload2['contents.0.tdest'] = tdest
@@ -132,6 +134,7 @@ def upload2(tid, tdays, tname, tdescrip, tpeople, tdest):
 def upload3(jid, jname, jtag):
     paramsupload3['appId'] = appId3
     paramsupload3['contents.0.jname'] = jname
+    paramsupload3['contents.0.forprint'] = 'c02b88ca97f3dd17b572e92d7ca07955'
     paramsupload3['contents.0.jtag'] = jtag
     paramsupload3['contents.0.id'] = jid
     service = QcloudApi(module, config)
@@ -184,7 +187,7 @@ def search1(query):
     info = (service.call(action2, paramssearch)).encode('utf-8')
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"dinfo\\\\":\\\\"(.+?)\\\\",\\\\"dname\\\\":\\\\"(.+?)\\\\",\\\\"id\\\\":\\\\"(.+?)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"dinfo\\\\":\\\\"(.+?)\\\\",\\\\"dname\\\\":\\\\"(.+?)\\\\",\\\\"forprint\\\\":\\\\"c02b88ca97f3dd17b572e92d7ca07955\\\\",\\\\"id\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -213,7 +216,7 @@ def search2(query):
     info = service.call(action2, paramssearch)
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"tdays\\\\":\\\\"(.+?)\\\\",\\\\"tdescrip\\\\":\\\\"(.+?)\\\\",\\\\"tdest\\\\":\\\\"(.+?)\\\\",\\\\"tname\\\\":\\\\"(.+?)\\\\",\\\\"tpeople\\\\":\\\\"(.+?)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"forprint\\\\":\\\\"c02b88ca97f3dd17b572e92d7ca07955\\\\",\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"tdays\\\\":\\\\"(.+?)\\\\",\\\\"tdescrip\\\\":\\\\"(.+?)\\\\",\\\\"tdest\\\\":\\\\"(.+?)\\\\",\\\\"tname\\\\":\\\\"(.+?)\\\\",\\\\"tpeople\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
@@ -245,7 +248,7 @@ def search3(query):
     info = service.call(action2, paramssearch)
     re1 = re.compile('"code":(\w+),')
     re2 = re.compile('"result_num":(\w+),')
-    re3 = re.compile('"doc_meta":"\{\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"jname\\\\":\\\\"(.+?)\\\\",\\\\"jtag\\\\":\\\\"(.+?)\\\\"\}')
+    re3 = re.compile('"doc_meta":"\{\\\\"forprint\\\\":\\\\"c02b88ca97f3dd17b572e92d7ca07955\\\\",\\\\"id\\\\":\\\\"(.+?)\\\\",\\\\"jname\\\\":\\\\"(.+?)\\\\",\\\\"jtag\\\\":\\\\"(.+?)\\\\"\}')
     if re1.findall(info) != ['0']:
         output = open('errorlog', 'a+')
         output.write("search error:\n")
