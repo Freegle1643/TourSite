@@ -33,15 +33,23 @@ def home(request):
 
     # upload the database information to the yunsou
 
+    # print ('uploading')
+    #
     # for x in range(alldest.count()):
     #     # print (alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
     #      upload1(alldest[++x].did, alldest[++x].dname, alldest[++x].dinfo)
     #
+    # print ('uploaded destination')
+    #
     # for x in range(alltrip.count()):
     #      upload2(alltrip[++x].tid, alltrip[++x].tdays, alltrip[++x].tname,alltrip[++x].tdescrip,alltrip[++x].tpeople,alltrip[++x].tdest)
     #
+    # print ('uploaded trip')
+    #
     # for x in range(alljournal.count()):
     #      upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jtag)
+    #
+    # print ('uploaded journal')    
 
     if request.user.is_authenticated():
         if request.user.is_staff:

@@ -311,14 +311,14 @@ def searchall(query):
         htmlcode += '"><span class="submenu-search-h" >' + ddresult + '</span></a></div></div>'
     if ttresult != 'Service error' and ttresult != 'No Result':
         htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../triplist"><p class="search-subTitle">行程</p></a>'
-        for i in ttresult:
-            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip' + searchallresult['trip'][0]['id']
+        for i in ttifExist:
+            htmlcode = htmlcode + '<div id="id-submenu-search-user-2" class="submenuList"><a href="../trip' + i['id']
             htmlcode += '"><span class="submenu-search-h" >' + i['tname'] + '</span></a></div></div>'
     if jjresult != 'Service error' and jjresult != 'No Result':
         htmlcode = htmlcode + '<div class="submenu-search-title"><a href="../forum"><p class="search-subTitle">游记</p></a>'
-        for j in jjresult:
-            htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal' + searchallresult['journal'][0]['id']
-            '"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
+        for j in jjifExist:
+            htmlcode = htmlcode + '<div id="id-submenu-search-user-5" class="submenuList"><a href="../journal' + j['id']
+            htmlcode += '"><span class="submenu-search-h" >' + j['jname'] + '</span></a></div>'
     # htmlcode = htmlcode + '</div></div></div>'
     htmlcode = htmlcode + '</div></div>'
     return htmlcode
