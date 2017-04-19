@@ -49,7 +49,7 @@ def home(request):
     # for x in range(alljournal.count()):
     #      upload3(alljournal[++x].jid, alljournal[++x].jname, alljournal[++x].jtag)
     #
-    # print ('uploaded journal')    
+    # print ('uploaded journal')
 
     if request.user.is_authenticated():
         if request.user.is_staff:
@@ -324,6 +324,17 @@ def feature_north(request):
             return render(request, 'feature_north.html', {'currentuser': userobject})
     else:
         return render(request, 'feature-north.html', {})
+
+def customize(request):
+    if request.user.is_authenticated():
+        if request.user.is_staff:
+            return HttpResponseRedirect('../admin')
+        else:
+            userobject = Touruser.objects.all().filter(user=request.user.id)
+            # print request.user.id
+            return render(request, 'custom.html', {'currentuser': userobject})
+    else:
+        return render(request, 'custom.html', {})
 
 def yunsou(request):
     if request.is_ajax():

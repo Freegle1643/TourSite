@@ -14,30 +14,24 @@
     color: white;
     margin: 0px auto;
     width: 42%;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.2em;
 }
 .section-page-1{
     position: relative;
-    background: url(../images/gugong.jpg) no-repeat;
+    background: url(../images/beida.jpg) no-repeat;
     background-size: cover;
     color: white;
 }
 .section-page-2{
     position: relative;
-    background: url(../images/hutong.jpg) no-repeat;
+    background: url(../images/wuhandx.jpg) no-repeat;
     background-size: cover;
 
 }
 .section-page-3{
     position: relative;
-    background: url(../images/ruoergai.jpg) no-repeat;
-    background-size: cover;
-
-}
-.section-page-4{
-    position: relative;
-    background: url(../images/takelamagan.jpg) no-repeat;
+    background: url(../images/xijiao.jpg) no-repeat;
     background-size: cover;
 
 }

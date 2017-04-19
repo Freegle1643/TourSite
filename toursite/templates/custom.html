@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>定制行程|TOUR</title>
+    
+    <link rel="shortcut icon" href="{% static "res/icons/logo.ico" %}" >
+    <link rel="stylesheet" href="{% static "res/external/bootstrap-responsive.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/Font-Awesome-3.2.1/css/font-awesome.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/blogedit.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/bootstrap-datetimepicker.min.css" %}">
+    <link rel="stylesheet" href="{% static "res/css/custom.css" %}">
+    <script src="{% static "res/js/jquery-3.1.0.min.js" %}"></script>
+    <script src="{% static "res/external/jquery.hotkeys.js" %}"></script>
+    <script src="{% static "res/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/bootstrap-datetimepicker.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/bootstrap-datetimepicker.zh-CN.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/blogedit.js" %}"></script>
+    <script type="text/javascript" src="{% static "res/js/area.js" %}"></script>
+
+</head>
+
+<body class="cus-body">   
+    <div class="cus-content">
+        <div class="cus-routecard">
+            行程单
+            <div class="routecard">
+                <div class="datepicker">
+                    <div class="input-group date form_date col-md-5" data-date="" data-date-format="出发时间：yyyy-mm-dd">
+                        <input id="id-blogedit-date" class="form-control" size="16" type="text" placeholder="出发时间" value="" style="height:35px;box-shadow:none" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <div class="input-group date form_date col-md-5" data-date="" data-date-format="结束时间：yyyy-mm-dd">
+                        <input id="id-blogedit-date" class="form-control" size="16" type="text" placeholder="结束时间" value="" style="height:35px;box-shadow:none" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>               
+            </div>
+        </div>
+        <div class="cus-expense">旅行目的地：
+            <div id="id-cus-place"></div> 
+            <div class="info">
+                <div style="margin-left:15%;">
+                    <select id="s_province" name="s_province"></select>  
+                    <select id="s_city" name="s_city" ></select>  
+                    <script type="text/javascript">_init_area();</script>
+                    <button id="add-city">提交</button>
+                    </div>
+                </div>
+        </div>
+        <div class="blogedit-topic">
+            <p>行程主题</p>
+            <div class="blogedit-checkbox" style="text-align:center;">
+                <input type="radio" id="category-food" name="category">
+                <label for="category-food">美食</label>
+                <input type="radio" id="category-shopping" name="category">
+                <label for="category-shopping">购物</label>
+                <input type="radio" id="category-architecture" name="category">
+                <label for="category-architecture">建筑</label>
+                <input type="radio" id="category-scenery" name="category">
+                <label for="category-scenery">风光</label>
+                <input type="radio" id="category-culture" name="category">
+                <label for="category-culture">文化</label><br>
+                <input type="radio" id="category-adventure" name="category">
+                <label for="category-adventure">冒险</label>
+                <input type="radio" id="category-drive" name="category">
+                <label for="category-drive">自驾</label>
+                <input type="radio" id="category-family" name="category">
+                <label for="category-family">骑行</label>
+                <input type="radio" id="category-star" name="category">
+                <label for="category-star">星空</label>
+                <input type="radio" id="category-island" name="category">
+                <label for="category-island">海岛</label>
+            </div>
+        </div>
+        <div class="cus-submit">
+            <a id="id-cus-submit" class="a-select-cus"  onclick="cusSubmit()" href="../home">定制</a>
+            <a id="id-blogedit-return" class="a-select-cus" href="../home" >返回</a>
+        </div>
+    </div>
+
+<script type="text/javascript">
+        $("#add-city").click(
+            function(){
+                var options=$("#s_city option:selected");  //获取选中的项
+                alert(options.val());   //拿到选中项的值
+                $("#id-cus-place").append("<span class='destination' id='des' + options >" + options.val()+ "</span>");
+                }
+        );
+
+        $('.form_date').datetimepicker({
+            language: "zh-CN",
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+
+    </script>
+
+</body>
+
+</html>

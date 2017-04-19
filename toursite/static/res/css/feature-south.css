@@ -19,25 +19,19 @@
 }
 .section-page-1{
     position: relative;
-    background: url(../images/wuzhen.jpg) no-repeat;
+    background: url(../images/xiamendx.jpg) no-repeat;
     background-size: cover;
     color: white;
 }
 .section-page-2{
     position: relative;
-    background: url(../images/erhai.jpg) no-repeat;
+    background: url(../images/zhongshan.jpg) no-repeat;
     background-size: cover;
 
 }
 .section-page-3{
     position: relative;
-    background: url(../images/hongkong.jpg) no-repeat;
-    background-size: cover;
-
-}
-.section-page-4{
-    position: relative;
-    background: url(../images/gulangyu.jpg) no-repeat;
+    background: url(../images/dongnan.jpg) no-repeat;
     background-size: cover;
 
 }
@@ -59,7 +53,7 @@
     margin: 0;
     display: table-cell;
     padding: 60px 130px 60px 130px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.63em;
     vertical-align: middle;
     color: white;

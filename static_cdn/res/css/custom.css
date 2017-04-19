@@ -1,0 +1,131 @@
+.cus-body {
+    background: url(../images/trip_02.jpg);
+}
+.cus-content{
+    background-color: #fff;
+    padding: 5% 2% 5% 2%;
+    margin:0 auto;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    background-color: #fff;
+}
+.cus-routecard {
+    margin-top: 40px;
+}
+.routecard {
+    margin-top: 20px;
+    height: auto;
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+.input-group {
+    width: 280px;
+}
+/*.定制地点*/
+.cus-expense {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfdfdf;
+}
+#id-cus-place {
+    margin: 15px;
+}
+.destination {
+    padding: 5px;
+    color: #fff;
+    margin-right: 30px;
+    box-shadow: 0 0 5px #455c9a;
+    -webkit-box-shadow: 0 0 5px #455c9a;
+    -moz-box-shadow: 0 0 5px #455c9a;
+    background-color: #455c9a;
+}
+#add-city {
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+}
+#add-city:hover {
+    border: none;
+    color: #fff;
+    background-color: #000;
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+}
+.info select{
+    width: 150px;
+    height: 30px;
+    font-size: 18px; 
+    border:1px #dddddd solid;
+    background:#FFFFFF;
+ }
+ .info select:focus{
+    width: 150px;
+    height: 30px;
+    font-size: 18px; 
+    border:1px #455c9a solid;
+    background:#FFFFFF;
+ }
+.info{ 
+    margin:5px;
+}
+.info #show{ 
+    color:#455c9a; 
+}
+#id-blogedit-date {
+    background-color: #fff;
+    padding: 4px 0px 4px 4px;
+}
+.input-group-addon {
+    background-color: #fff;
+}
+
+.cus-submit{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+}
+a.a-select-cus {
+    line-height: 60px;
+    vertical-align: middle;
+    padding: 6px 70px;
+    font-size: 12px;
+    color: black;
+    border: 1px solid #DFDFDF;
+    text-decoration: none;
+    margin-right: 10px;
+}
+a.a-select-cus:visited {
+    line-height: 60px;
+    vertical-align: middle;
+    padding: 6px 70px;
+    font-size: 12px;
+    color: black;
+    border: 1px solid #DFDFDF;
+    text-decoration: none;
+}
+a.a-select-cus:link {
+    line-height: 60px;
+    vertical-align: middle;
+    padding: 6px 70px;
+    font-size: 12px;
+    color: black;
+    border: 1px solid #DFDFDF;
+    text-decoration: none;
+}
+a.a-select-cus:hover {
+    color: white;
+    border: white 1px solid;
+    background: rgba(0, 0, 0,0.8);
+    text-decoration: none;
+}
