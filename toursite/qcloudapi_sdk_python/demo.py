@@ -199,9 +199,9 @@ def search1(query):
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
-    pport = {}
     ppport = []
     for i in range(0, counter):
+        pport = {}
         pport['id'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
         pport['dname'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
         pport['dinfo'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
@@ -228,9 +228,9 @@ def search2(query):
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
-    pport = {}
     ppport = []
     for i in range(0, counter):
+        pport = {}
         pport['id'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
         pport['tdays'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
         pport['tname'] = (port[i][4].decode('raw_unicode_escape')).encode("utf-8")
@@ -260,9 +260,9 @@ def search3(query):
         #检查是否成功，错误返回信息写入日志
     counter = (int)(re2.findall(info)[0][0])
     port = re3.findall(info)
-    pport = {}
     ppport = []
     for i in range(0, counter):
+        pport = {}
         pport['id'] = (port[i][0].decode('raw_unicode_escape')).encode("utf-8")
         pport['jname'] = (port[i][1].decode('raw_unicode_escape')).encode("utf-8")
         pport['jtag'] = (port[i][2].decode('raw_unicode_escape')).encode("utf-8")
