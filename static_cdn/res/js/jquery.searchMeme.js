@@ -108,7 +108,8 @@
                             // console.log(result);
                         },
                         error: function (xhr, status, error) {
-                            alert('!Error:' + error.message);
+                            //alert('!Error:' + error.message);
+
                         }
                     });
 

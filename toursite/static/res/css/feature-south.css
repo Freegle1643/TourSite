@@ -19,7 +19,7 @@
 }
 .section-page-1{
     position: relative;
-    background: url(../images/xiamendx.jpg) no-repeat;
+    background: url(../images/xiamen_uni.jpg) no-repeat;
     background-size: cover;
     color: white;
 }
@@ -53,7 +53,7 @@
     margin: 0;
     display: table-cell;
     padding: 60px 130px 60px 130px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.63em;
     vertical-align: middle;
     color: white;
@@ -92,7 +92,3 @@ div.be-black {
     position: absolute;
 }
 
-div.back-to-home {
-    position: absolute;
-    top: 20px;
-}

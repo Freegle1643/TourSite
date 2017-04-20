@@ -14,7 +14,6 @@
 </head>
 
 <body style="position: relative;">
-    <div class="back-to-home"><a href="../home"><img src="{% static "res/images/" %}"/></a></div>
     <div id="fullpage">
         <div class="section section-head active" id="section1">
             <div id="id-feature-head" class="be-black" style="top: 0px;display: none;">
@@ -25,7 +24,7 @@
                 让我们一起领略南方的好去处。<br/>
                 途尔，一路有你。
             </p>
-               <div style="width:400px;height:100px;margin: 0px auto;"> <div class="back-to-home"><a href="home.html"><img src="{% static "res/images/logo1.png" %}"/></a></div></div>
+               <div style="width:400px;height:100px;margin: 0px auto;"> <div class="back-to-home"><a href="home.html"><img src="{% static "res/images/logo.png" %}" style="width: 140px;height: 60px;margin-top: 20px;"/></a></div></div>
 
                 </div>
             </div>
@@ -77,7 +76,7 @@
                 <p class="section-preview">
                     <span style="font-size: 26px;">东南大学</span><br/><br/><br/>
                     东揽钟山紫气，北拥扬子银涛。六朝松下听箫韶。齐梁遗韵在，太学令名标。百载文枢江左，
-东南辈出英豪。海涵地负展宏韬。日新臻化境，四海领风骚。110年历史，几多辛酸，几多光辉。110年奋斗，几多艰苦，几多顽强。110年教育，何其辛苦，历尽磨难，不老不衰，在经历110年后，东大进入了新世纪，古朴与现代正悄无声息的交融着。我也将以这种悄无声息的姿态，做一位东大人！一所名校，一座古城，一群追梦人，遇见你是我的幸福
+东南辈出英豪。海涵地负展宏韬。日新臻化境，四海领风骚。110年历史，几多辛酸，几多光辉。110年奋斗，几多艰苦，几多顽强。110年教育，何其辛苦，历尽磨难，不老不衰，在经历110年后，东大进入了新世纪，古朴与现代正悄无声息的交融着。我也将以这种悄无声息的姿态，做一位东大人！一所名校，一座古城，一群追梦人，遇见你是我的幸福。
 
                     <br/>
                    <span style="font-size: 10px;float: right;">——途尔，一路有你</span>
@@ -92,19 +91,20 @@
             </div>
         </div>
 
+    </div>
 
-        <script src="res/js/move.js"></script>
+    <script src="{% static "res/js/move.js" %}"></script>
     <script>
 
         $(document).ready(function(){
             $('#fullpage').fullpage({
-                srcollingSpeed: 500,
+                'srcollingSpeed': 0,
                 'navigation': true,
 				'navigationPosition': 'right',
                 'afterLoad': function(link,index) {
                     switch(index){
                         case 1:
-                        $("#id-feature-head").fadeIn(2000);
+                        $("#id-feature-head").fadeIn(0);
                         break;
                         case 2:
                         move('#section2 div.be-black').set('top',0).end();
