@@ -275,7 +275,7 @@ def aboutTour(request):
             else:
                 userobject = Touruser.objects.all().filter(user=request.user.id)
                 # print request.user.id
-                return render(request, 'about.html', {'currentuser': userobject})
+                return render(request, 'aboutTour.html', {'currentuser': userobject})
         else:
             return render(request, 'aboutTour.html', {})
 
