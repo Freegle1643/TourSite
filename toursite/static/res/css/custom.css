@@ -129,3 +129,6 @@ a.a-select-cus:hover {
     background: rgba(0, 0, 0,0.8);
     text-decoration: none;
 }
+.glyphicon.glyphicon-remove{
+    background: url(../icons/remove.png);
+}

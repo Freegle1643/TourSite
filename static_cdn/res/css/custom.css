@@ -129,6 +129,6 @@ a.a-select-cus:hover {
     background: rgba(0, 0, 0,0.8);
     text-decoration: none;
 }
-.input-group-addon span {
-    background:url(../icons/remove.png);
+.glyphicon.glyphicon-remove{
+    background: url(../icons/remove.png);
 }
