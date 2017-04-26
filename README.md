@@ -1,6 +1,6 @@
 # 途尔旅行 一路有你
 [欢迎作客！途尔，一路有你！](http://minewtour.com/)
-这是一个基于Django的小众行程和游记旅行网站，用于参加[云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index)，目前已进入全国总决赛，正在完善并准备答辩。
+这是一个基于Django的小众行程和游记旅行网站，用于参加[云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index)，目前已进入全国总决赛并获得一等奖，将前往上海参加“ACM图灵奖50周年庆祝大会”颁奖典礼。
 ## 基本信息
 本项目主要用于参加 [云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index).
 我们参加的是腾讯云命题组，作为要求，我们使用了不少腾讯云的服务，包括云虚拟机CVM，云数据库（MySQL），对象存储（COS）以及腾讯的大数据AI产品云搜，这些都是我们项目完善的关键所在。
@@ -29,7 +29,7 @@ python manage.py makemigrations
 如果你要使用途尔作比赛或商用，请联系我们！
 
 # TourSite
-Django based touring site, using some Tencent cloud techs.
+Django based touring site, using some Tencent cloud techs. We, as a team, has won the first prize in the competition mentioned below !
 ## Basic info
 This is a project mainly used for a competition called [云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index).
 The contest is partly supported by Tencent, so we would like to use many of their cloud service including CVM, Cloud Database, COS and other AI products like 云搜(Cloud Search) to optimize the experience of our site.
