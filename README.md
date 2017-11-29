@@ -28,14 +28,14 @@ python manage.py makemigrations
 你就可以享用你的途尔了！
 如果你要使用途尔作比赛或商用，请联系我们！
 
-# TourSite
-Django based touring site, using some Tencent cloud techs. We, as a team, has won the first prize in the competition mentioned below !
+# TOUR
+Django based touring site, using some Tencent Cloud techs. We, as a team, has won the 1st prize in the competition mentioned below !
 ## Basic info
 This is a project mainly used for a competition called [云计算应用创新大赛(Cloud Computing Application Innovation Contest)](https://cloud.seu.edu.cn/contest/index).
-The contest is partly supported by Tencent, so we would like to use many of their cloud service including CVM, Cloud Database, COS and other AI products like 云搜(Cloud Search) to optimize the experience of our site.
-Our ultimate goal is to create a website that people who enjoy traveling themselves can discover spots and routes just to fit their needs.
+The contest is partly supported by Tencent, so we are asked to apply some of their cloud service including Cloud Virtual Machine(CVM), Cloud Database, Cloud Object Storage(COS) and other AI products like Cloud Search(云搜) to optimize the experience of our site.
+Our initial goal is to create a website for people who enjoy traveling to selected spots rather than well-known but crowded places to discover more entertainment out of the unique experience.
 ## Our group
-All these outcomes are the fabulous results of hardworking of our group 候鸟(Passagird:meaning bird of passage). We are [Freegle](https://github.com/Freegle1643), [Chanki](https://github.com/ChankiWu), [Hypnos](https://github.com/Hypnosx) and [Zhixiang](https://github.com/wuzhixiang).
+All these outcomes are the fabulous results of hardworking of our group 候鸟(meaning the migratory birds). We are [Freegle](https://github.com/Freegle1643), [Chanki](https://github.com/ChankiWu), [Hypnos](https://github.com/Hypnosx) and [Zhixiang](https://github.com/wuzhixiang).
 ### Tech specs
 Django 1.9.6
 Python 2.7.9
@@ -48,7 +48,7 @@ COS Cloud Search (云搜)
 #### Contact
 pearl1643@live.com
 #### Usage
-For security reasons, we leave the code to connect DB blank, you can definitly use your own MySQL DB or any other compatible database to run the project. After you configure the database connection code, just by typing:
+For security reasons, we leave the code to connect DB blank, you can definitely use your own MySQL DB or any other compatible database to run the project. After you configure the database connection code, just by typing:
 ```Python
 python manage.py migrate
 python manage.py makemigrations
